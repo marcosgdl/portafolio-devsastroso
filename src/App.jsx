@@ -10,7 +10,7 @@ import ContactBlock from './components/ContactBlock/ContactBlock';
 import Zancudo from './components/Zancudo/Zancudo'; 
 import Footer from './components/Footer/Footer';
 import CookieBanner from './components/CookieBanner/CookieBanner';
-import './styles/global.css';
+import './styles/Global.css';
 
 export default function App() {
   // 🚀 ESTADO PARA LA PANTALLA DE CARGA
