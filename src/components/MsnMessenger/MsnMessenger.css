@@ -1,0 +1,494 @@
+/* src/components/MsnMessenger/MsnMessenger.css */
+
+/* EL FONDO OSCURO PARA QUE RESALTE LA VENTANA */
+.msn-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+/* LA VENTANA PRINCIPAL */
+.msn-window {
+  width: 600px;
+  height: 500px;
+  background-color: #E4EBF4; 
+  border: 1px solid #410099; 
+  border-radius: 8px 8px 0 0;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  font-family: 'Tahoma', 'Segoe UI', sans-serif;
+}
+
+/* BARRA DE TÍTULO DE WINDOWS XP (MORADO YAHOO) */
+.msn-title-bar {
+  background: linear-gradient(to bottom, #720e9e 0%, #6001d2 40%, #410099 100%);
+  padding: 4px 6px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.msn-title-left {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.msn-title-right button {
+  background: transparent;
+  border: 1px solid white; 
+  color: white;
+  width: 22px;
+  height: 22px;
+  margin-left: 2px;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.msn-title-right .msn-btn-close {
+  background-color: #E81123; 
+}
+
+/* MENÚ Y CONTENIDO */
+.msn-menu-bar {
+  display: flex;
+  gap: 2px;
+  padding: 2px 10px;
+  border-bottom: 1px solid #C5D3E5;
+  background-color: #E4EBF4; 
+}
+
+.msn-menu-bar span {
+  font-family: 'Tahoma', Arial, sans-serif; 
+  font-size: 12px;
+  color: #000000; 
+  padding: 3px 8px;
+  border-radius: 2px;
+  cursor: default; 
+}
+
+.msn-menu-bar span:hover {
+  background-color: #316AC5; 
+  color: white;
+}
+
+.msn-content {
+  display: flex;
+  flex: 1;
+  padding: 10px;
+  gap: 10px;
+}
+
+/* ÁREA DE CHAT */
+.msn-chat-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.msn-history-area {
+  flex: 1;
+  background-color: white;
+  border: 1px solid #A0B6D5;
+  border-radius: 3px;
+  padding: 8px;
+  overflow-y: auto;
+  text-align: left; 
+}
+
+.msn-message-info {
+  font-size: 11px;
+  color: #888;
+  text-align: left; 
+  margin-bottom: 10px;
+  line-height: 1.2; 
+}
+
+.msn-toolbar {
+  display: flex;
+  gap: 5px;
+  padding: 2px 0;
+}
+
+.msn-toolbar button {
+  background: transparent;
+  border: 1px solid transparent;
+  cursor: pointer;
+  padding: 2px 6px;
+  border-radius: 3px;
+}
+
+.msn-toolbar button:hover {
+  border: 1px solid #A0B6D5;
+  background-color: #D3E0F0;
+}
+
+/* ÁREA DE ESCRIBIR */
+.msn-input-area {
+  display: flex;
+  gap: 5px;
+  height: 80px;
+}
+
+.msn-input-area textarea {
+  flex: 1;
+  resize: none;
+  border: 1px solid #A0B6D5;
+  border-radius: 3px;
+  padding: 5px;
+  font-family: inherit;
+  text-align: left; 
+}
+
+.msn-send-btn {
+  height: 100%;
+  padding: 0 15px;
+  background-color: #F0F4F8;
+  border: 1px solid #A0B6D5;
+  border-radius: 3px;
+  cursor: pointer;
+  color: #333;
+}
+
+.msn-send-btn:hover {
+  background-color: #D3E0F0;
+}
+
+/* AVATARES */
+.msn-sidebar {
+  width: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.msn-avatar-box {
+  background-color: white;
+  border: 1px solid #A0B6D5;
+  height: 100px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 40px;
+}
+
+.visitor {
+  background-color: #DDE8F4;
+}
+
+/* BARRA INFERIOR */
+.msn-status-bar {
+  padding: 4px 10px;
+  font-size: 11px;
+  color: #555;
+  border-top: 1px solid #C5D3E5;
+}
+
+/* FOTOS Y ICONOS */
+.msn-avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; 
+  border-radius: 4px; 
+}
+
+.msn-icon-img {
+  width: 16px;
+  height: 16px;
+  object-fit: cover;
+  border-radius: 2px; 
+}
+
+/* =========================================
+   ANIMACIONES
+   ========================================= */
+@keyframes sacudidaMsn {
+  0% { transform: translate(0, 0); }
+  10% { transform: translate(-15px, 15px); }
+  20% { transform: translate(15px, -15px); }
+  30% { transform: translate(-15px, -15px); }
+  40% { transform: translate(15px, 15px); }
+  50% { transform: translate(-10px, 10px); }
+  60% { transform: translate(10px, -10px); }
+  70% { transform: translate(-10px, -10px); }
+  80% { transform: translate(10px, 10px); }
+  90% { transform: translate(-5px, 5px); }
+  100% { transform: translate(0, 0); }
+}
+
+.zumbido-activo {
+  animation: sacudidaMsn 0.5s cubic-bezier(.36,.07,.19,.97) both;
+}
+
+.msn-kiss-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 99999; 
+  pointer-events: none; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255, 105, 180, 0.15); 
+}
+
+.msn-giant-kiss {
+  font-size: 350px; 
+  animation: besoEpico 1.5s ease-in-out forwards; 
+  filter: drop-shadow(0 0 50px rgba(255, 20, 147, 0.8));
+}
+
+@keyframes besoEpico {
+  0% { transform: scale(0) rotate(-30deg); opacity: 0; }
+  5% { transform: scale(1.2) rotate(15deg); opacity: 1; }
+  10% { transform: scale(1) rotate(0deg); opacity: 1; }
+  85% { transform: scale(1); opacity: 1; } 
+  95% { transform: scale(2); opacity: 0.5; filter: drop-shadow(0 0 100px pink); } 
+  100% { transform: scale(3); opacity: 0; display: none; } 
+}
+
+/* =========================================
+   ESTILOS DE CHAT INTERNOS
+   ========================================= */
+.msn-message-row {
+  margin-bottom: 6px;
+  font-size: 13px;
+  line-height: 1.4;
+  word-wrap: break-word; 
+}
+
+.msn-sender-marcos {
+  color: #000000;
+  font-weight: bold;
+}
+
+.msn-sender-visitante {
+  color: #7A7A7A; 
+  font-weight: bold;
+}
+
+.msn-message-text {
+  color: #000000;
+  margin-left: 5px;
+}
+
+.msn-system-msg {
+  text-align: center;
+  color: #888888;
+  font-size: 11px;
+  margin: 15px 0;
+  font-style: italic;
+  font-family: 'Tahoma', Arial, sans-serif;
+}
+
+/* BOTÓN DE CIERRE (MORADO YAHOO) */
+.msn-close-btn-big {
+  padding: 8px 24px;
+  background-color: #410099; 
+  color: #ffffff; 
+  border: 1px solid #2a0066; 
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: 'Tahoma', Arial, sans-serif;
+  font-weight: bold;
+  transition: all 0.3s ease; 
+}
+
+.msn-close-btn-big:hover {
+  background-color: #6001d2; 
+  border-color: #410099;
+  box-shadow: 0 4px 10px rgba(65, 0, 153, 0.4); 
+  transform: translateY(-2px); 
+}
+
+/* =========================================
+   MENÚS FLOTANTES
+   ========================================= */
+.msn-popup-menu {
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  background-color: #FAFAFA;
+  border: 1px solid #A0B6D5;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+  padding: 5px;
+  z-index: 100;
+  border-radius: 3px;
+  margin-bottom: 5px;
+}
+
+.emoji-picker {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 5px;
+  font-size: 18px;
+}
+
+.emoji-picker span {
+  cursor: pointer;
+  padding: 4px;
+  text-align: center;
+  border: 1px solid transparent;
+}
+
+.emoji-picker span:hover {
+  background-color: #D3E0F0;
+  border-color: #A0B6D5;
+  border-radius: 3px;
+}
+
+.font-picker {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  width: 140px;
+}
+
+.font-options span {
+  display: block;
+  cursor: pointer;
+  padding: 4px 8px;
+  font-size: 13px;
+  color: #000;
+}
+
+.font-options span:hover {
+  background-color: #316AC5;
+  color: white;
+}
+
+.color-options {
+  display: flex;
+  gap: 8px;
+  padding: 8px 5px 3px 5px;
+  border-top: 1px solid #D3E0F0;
+  justify-content: center;
+}
+
+.color-box {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  border: 1px solid #888;
+  border-radius: 2px;
+}
+
+.color-box:hover {
+  border-color: #000;
+  transform: scale(1.1);
+}
+
+/* =========================================
+   PANTALLA DE ÉXITO (AVIONCITO)
+   ========================================= */
+.msn-success-screen {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.85); 
+  backdrop-filter: blur(5px); 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 100; 
+  border-radius: 8px 8px 0 0; 
+  animation: fadeInOverlay 0.5s ease-out forwards;
+}
+
+.plane-icon-container {
+  font-size: 65px;
+  color: #410099; 
+  margin-bottom: 20px;
+  animation: flyAway 2s ease-in-out infinite alternate;
+}
+
+.msn-success-screen h3 {
+  margin: 0 0 10px 0;
+  font-size: 24px;
+  color: #000;
+  font-family: 'Tahoma', Arial, sans-serif;
+}
+
+.msn-success-screen p {
+  margin: 0 0 25px 0;
+  font-size: 14px;
+  color: #555;
+  font-weight: bold;
+}
+
+@keyframes fadeInOverlay {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes flyAway {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  100% { transform: translate(15px, -15px) rotate(15deg); }
+}
+
+/* =========================================
+   ADAPTACIÓN PARA CELULARES (RESPONSIVE COMPACTO)
+   ========================================= */
+@media (max-width: 768px) {
+  .msn-window {
+    width: 95vw;  
+    height: 75vh; 
+    max-height: 600px; /* MAGIA: Esto frena el estiramiento en pantallas largas */
+  }
+
+  .msn-menu-bar {
+    display: none; 
+  }
+
+  .msn-content {
+    flex-direction: column-reverse; 
+    padding: 8px; 
+    gap: 8px;
+  }
+
+  .msn-sidebar {
+    width: 100%;
+    height: auto;
+    flex-direction: row; 
+    justify-content: center;
+    gap: 20px; 
+    padding-bottom: 5px;
+  }
+
+  .msn-avatar-box {
+    width: 45px; 
+    height: 45px;
+  }
+
+  .msn-input-area {
+    height: 55px; 
+  }
+
+  .msn-send-btn {
+    padding: 0 12px;
+    font-size: 12px;
+  }
+}

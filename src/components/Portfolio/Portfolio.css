@@ -1,0 +1,203 @@
+/* src/components/Portfolio/Portfolio.css */
+
+.portfolio-wrapper {
+  width: 100%;
+  max-width: 1400px; 
+  margin: 0 auto 6rem auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+/* --- NUEVO ENCABEZADO ESTILO EDITORIAL --- */
+.portfolio-header-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 1000px;
+  margin-bottom: 3rem;
+}
+
+.portfolio-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 0 2rem;
+  gap: 1.5rem; 
+}
+
+.portfolio-line {
+  flex: 1;
+  height: 1px;
+  background-color: var(--border); /* 🚀 Se adapta al modo oscuro */
+}
+
+.portfolio-title {
+  font-size: 1.2rem; 
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  color: var(--text-h); /* 🚀 Cambia a blanco/negro automáticamente */
+  margin: 0;
+  text-transform: uppercase;
+}
+
+/* MAGIA: El texto resaltado en el modo correcto */
+.portfolio-title .highlight-text {
+  color: var(--text-h); 
+  font-weight: 900; 
+}
+
+/* --- ETIQUETA FREELANCE --- */
+.portfolio-freelance-label {
+  margin: 8px 0 0 0;
+  color: var(--accent); /* 🚀 Tu Morado Yahoo! */
+  font-family: var(--mono); /* Letra de código */
+  font-size: 0.85rem;
+  font-weight: bold;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+}
+
+/* --- CONTENEDOR DEL CARRUSEL --- */
+.carousel-container {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+/* --- LA PISTA DESLIZABLE (TRACK) --- */
+.portfolio-track {
+  display: flex;
+  gap: 2rem; 
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory; 
+  padding: 1rem 3rem; 
+  width: 100%;
+  
+  /* Ocultar barra de scroll en navegadores Webkit (Chrome, Safari) */
+  -ms-overflow-style: none;  
+  scrollbar-width: none;  
+}
+
+.portfolio-track::-webkit-scrollbar { 
+  display: none; 
+}
+
+/* --- LAS TARJETAS (CARDS) --- */
+.portfolio-card {
+  min-width: 320px; 
+  max-width: 320px;
+  background-color: var(--bg); /* 🚀 Fondo dinámico claro/oscuro */
+  border: 1px solid var(--border); /* 🚀 Borde dinámico */
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--shadow); /* 🚀 Sombra global de tu index.css */
+  scroll-snap-align: start; 
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.portfolio-card:hover {
+  transform: translateY(-8px);
+  /* Un pequeño resplandor morado al pasar el mouse */
+  box-shadow: 0 15px 30px var(--accent-bg); 
+}
+
+/* Área de imagen de la tarjeta */
+.card-image-wrapper {
+  width: 100%;
+  height: 200px;
+  overflow: hidden; 
+  background-color: var(--code-bg); 
+}
+
+.card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; 
+  transition: transform 0.5s ease; 
+}
+
+.portfolio-card:hover .card-image {
+  transform: scale(1.05);
+}
+
+/* Textos de la tarjeta */
+.card-info {
+  padding: 1.5rem;
+  text-align: left;
+}
+
+.card-title {
+  font-family: var(--heading);
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: var(--text-h); /* 🚀 Título dinámico */
+  margin-bottom: 0.3rem;
+}
+
+.card-category {
+  font-family: var(--sans);
+  font-size: 0.9rem;
+  color: var(--text); /* 🚀 Texto secundario dinámico */
+  margin: 0;
+}
+
+/* --- LAS FLECHAS DE ESCRITORIO --- */
+.carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: var(--bg); /* 🚀 Botón dinámico */
+  border: 1px solid var(--border);
+  color: var(--text-h);
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+  cursor: pointer;
+  z-index: 10;
+  box-shadow: var(--shadow);
+  transition: all 0.2s ease;
+}
+
+.carousel-arrow:hover {
+  color: var(--accent); /* El toque Yahoo! */
+  border-color: var(--accent);
+}
+
+.left-arrow { left: 10px; }
+.right-arrow { right: 10px; }
+
+/* --- RESPONSIVIDAD --- */
+@media (max-width: 900px) {
+  .portfolio-title-row {
+    padding: 0 1rem;
+    gap: 1rem;
+  }
+  
+  .portfolio-title {
+    font-size: 0.9rem; 
+  }
+
+  .portfolio-track {
+    padding: 1rem;
+    gap: 1.2rem;
+  }
+
+  .portfolio-card {
+    min-width: 280px; 
+  }
+
+  .carousel-arrow {
+    display: none;
+  }
+}

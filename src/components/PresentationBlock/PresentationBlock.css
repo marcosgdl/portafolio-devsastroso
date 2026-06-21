@@ -1,0 +1,220 @@
+/* src/components/PresentationBlock/PresentationBlock.css */
+
+.presentation-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  /* ¡AQUÍ ESTÁ EL AIRE! Aumentamos el gap a 6rem */
+  gap: 9rem; 
+  padding: 6rem 4rem;
+  width: 100%;
+  align-items: center; 
+  max-width: 1200px; 
+  margin: 0 auto; 
+}
+
+/* --- EL MARCO DEL VIDEO --- */
+.video-frame {
+  position: relative;
+  border-radius: 24px; 
+  overflow: hidden; 
+  border: 0px solid rgba(255, 255, 255, 0.1); 
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.9); 
+  background-color: yellow; 
+}
+
+.presentation-video {
+  width: 100%;
+  display: block; 
+  object-fit: cover; 
+}
+
+/* --- LOS TEXTOS --- */
+.about-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* Alineamos los títulos y la lista a la izquierda */
+  text-align: left; 
+}
+
+.about-title {
+  /* Letra ligeramente más pequeña */
+  font-size: 1.2rem; 
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+  color: var(--text-color);
+  letter-spacing: -0.02em;
+}
+
+.about-subtitle {
+  font-size: 0.8rem; 
+  color: #888888;
+  font-weight: 400;
+  margin-bottom: 2rem;
+}
+
+.about-text {
+  font-size: 0.7rem; 
+  /* Aumentamos un poquito el interlineado para que sea más fácil de leer */
+  line-height: 1.7; 
+  margin-bottom: 1rem;
+  color: var(--text-color);
+  opacity: 0.9;
+  /* ¡MAGIA! Párrafo justificado */
+  text-align: justify; 
+}
+
+.about-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.about-list li {
+  font-size: 0.95rem; 
+  margin-bottom: 0.8rem;
+  color: var(--text-color);
+  opacity: 0.8;
+}
+
+.about-list li strong {
+  color: var(--text-color);
+  opacity: 1;
+  margin-right: 0.5rem;
+}
+
+/* --- RESPONSIVIDAD (Laptops pequeñas / Tablets) --- */
+@media (max-width: 1024px) {
+  .presentation-container {
+    gap: 3rem; /* Reducimos el gap en pantallas medianas */
+    padding: 4rem 2rem;
+  }
+}
+
+/* --- RESPONSIVIDAD (Móviles) --- */
+@media (max-width: 768px) {
+  .presentation-container {
+    grid-template-columns: 1fr; 
+    gap: 2rem;
+    padding: 3rem 1.5rem;
+  }
+
+  .video-column {
+    order: 1; 
+  }
+
+  .about-column {
+    order: 2; 
+    margin-top: 1rem;
+    /* Opcional: Centrar todo en móviles suele verse mejor, 
+       pero lo dejamos a la izquierda para mantener tu estilo */
+    text-align: left;
+  }
+
+  .about-text {
+    /* En celular también se ve bien justificado */
+    text-align: justify;
+  }
+
+  .about-title {
+    font-size: 1.8rem;
+  }
+}
+
+/* --- ICONOS DE TECNOLOGÍAS --- */
+.tech-icons {
+  display: flex;
+  gap: 0.5rem; /* Espacio entre cada logo */
+  margin-bottom: 2rem; /* Espacio antes del párrafo */
+  font-size: 0.9rem; /* Tamaño de los iconos */
+  color: var(--text-color);
+  opacity: 0.6; /* Un poco transparentes para que luzcan elegantes */
+}
+
+.tech-icons svg {
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+/* Efecto hover: se vuelven 100% visibles y se elevan ligeramente */
+.tech-icons svg:hover {
+  opacity: 1;
+  transform: translateY(-4px);
+}
+
+/* --- SECCIÓN HOBBIES --- */
+.hobbies-title {
+  margin-top: 1rem; /* Separa los hobbies de tu último párrafo */
+  margin-bottom: 1.0rem;
+}
+
+.hobbies-icons {
+  display: flex;
+  gap: .8rem; /* Aire entre iconos */
+  font-size: 1.2rem; /* Iconos un poco más grandes para que destaquen */
+}
+
+.hobby-item {
+  position: relative;
+  color: var(--text-color);
+  opacity: 0.6;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Efecto de salto en el icono al hacer hover */
+.hobby-item:hover {
+  opacity: 1;
+  transform: translateY(-6px) scale(1.1); 
+}
+
+/* --- EL TOOLTIP CHINGÓN (GLOBO FLOTANTE) --- */
+.hobby-item::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 130%; /* Lo colocamos flotando sobre el icono */
+  left: 50%;
+  transform: translateX(-50%) translateY(15px); /* Posición inicial un poco caída */
+  background: var(--text-color); /* Color invertido respecto al tema */
+  color: var(--bg-color);
+  padding: 6px 14px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+  /* Esta curva cubic-bezier crea el efecto de "rebote" elástico */
+  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55); 
+  pointer-events: none; /* Para que el mouse no se atore con el globo */
+  z-index: 10;
+}
+
+/* El piquito del globo (la flecha apuntando hacia abajo) */
+.hobby-item::before {
+  content: '';
+  position: absolute;
+  bottom: 110%;
+  left: 50%;
+  transform: translateX(-50%) translateY(15px);
+  border-width: 8px;
+  border-style: solid;
+  border-color: var(--text-color) transparent transparent transparent;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* Al pasar el mouse, el globo sube a su posición final y se hace visible */
+.hobby-item:hover::after,
+.hobby-item:hover::before {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}

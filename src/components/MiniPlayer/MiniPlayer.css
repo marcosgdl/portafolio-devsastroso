@@ -1,0 +1,108 @@
+/* src/components/MiniPlayer/MiniPlayer.css */
+
+.mini-player-container {
+  display: flex;
+  flex-direction: column;
+  width: 380px; /* Tamaño pequeño original */
+  gap: 4px;
+}
+
+.player-title {
+  font-size: 0.6rem; /* Letra pequeña y elegante */
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #888888;
+  text-align: left;
+  line-height: 1.2;
+}
+
+.player-divider {
+  height: 1px;
+  background-color: #e0e0e0; 
+  width: 100%;
+}
+
+[data-theme='dark'] .player-divider {
+  background-color: #333333;
+}
+
+.player-controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 2px 0;
+}
+
+.play-btn {
+  background: none !important;
+  border: none !important;
+  color: var(--text-color);
+  font-size: 0.9rem;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* --- BOTÓN DE ENGRANE (SECRETO) --- */
+.settings-btn {
+  background: none !important;
+  border: none !important;
+  cursor: pointer;
+  font-size: 0.65rem; 
+  opacity: 0.3; 
+  padding: 0;
+  margin-left: auto; 
+  transition: opacity 0.3s ease, transform 0.2s ease;
+  display: flex;
+  align-items: center;
+  
+  /* ¡LA MAGIA PARA EL MODO OSCURO! */
+  color: var(--text-color); 
+}
+
+.settings-btn:hover {
+  opacity: 1; 
+  transform: rotate(90deg); 
+}
+
+.wave-container {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  height: 15px;
+  flex-grow: 1;
+}
+
+.wave-bar {
+  width: 3px;
+  height: 2px;
+  background-color: var(--text-color);
+  border-radius: 2px;
+  transition: height 0.2s ease;
+  opacity: 0.7;
+}
+
+.wave-container.playing .wave-bar {
+  animation: bounce 1s infinite alternate ease-in-out;
+}
+
+.wave-container.playing .wave-bar:nth-child(1) { animation-delay: 0.0s; }
+.wave-container.playing .wave-bar:nth-child(2) { animation-delay: 0.2s; }
+.wave-container.playing .wave-bar:nth-child(3) { animation-delay: 0.4s; }
+.wave-container.playing .wave-bar:nth-child(4) { animation-delay: 0.1s; }
+.wave-container.playing .wave-bar:nth-child(5) { animation-delay: 0.3s; }
+.wave-container.playing .wave-bar:nth-child(6) { animation-delay: 0.5s; }
+.wave-container.playing .wave-bar:nth-child(7) { animation-delay: 0.2s; }
+
+@keyframes bounce {
+  0% { height: 2px; }
+  100% { height: 14px; }
+}
+
+@media (max-width: 768px) {
+  .mini-player-container {
+    width: 240px; /* En móvil se mantiene centrado y compacto */
+  }
+}

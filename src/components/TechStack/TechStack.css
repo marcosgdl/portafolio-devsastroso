@@ -1,0 +1,384 @@
+/* src/components/TechStack/TechStack.css */
+
+.tech-stack-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+/* ========================================================
+   SECCIÓN: DISTRIBUCIÓN DE COMPETENCIAS (TOP)
+======================================================== */
+
+.tech-skills-bar-section {
+  width: 100%;
+  max-width: 1400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 0; 
+  margin-bottom: 3rem; 
+  z-index: 10;
+}
+
+.tech-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 1000px;
+  margin-bottom: 2rem;
+  padding: 0 2rem;
+  gap: 1.5rem; 
+}
+
+.tech-line {
+  flex: 1;
+  height: 1px;
+  background-color: var(--border);
+}
+
+.tech-title {
+  font-family: var(--heading);
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text); 
+  white-space: nowrap;
+}
+
+/* --- LA BARRA UNIFICADA PRINCIPAL --- */
+.bar-container-main {
+  width: 100%;
+  max-width: 450px; 
+  display: flex;
+  justify-content: center;
+  margin-bottom: 3rem; 
+}
+
+.bar-track-main {
+  width: 100%;
+  height: 24px; /* Barra superior delgada */
+  background-color: var(--bg); 
+  border: 1px solid var(--border);
+  border-radius: 50px; 
+  overflow: hidden; 
+  display: flex; 
+  box-shadow: var(--shadow);
+}
+
+.skills-bar-fill {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+  padding: 0 10px;
+  transition: all 0.3s ease;
+}
+
+.skills-bar-fill span {
+  color: #fff;
+  font-family: var(--sans);
+  font-weight: bold;
+  font-size: 0.75rem; /* Texto más pequeño */
+  white-space: nowrap; 
+}
+
+.skills-bar-fill-code {
+  background: linear-gradient(90deg, #2b2c34, #3f414d); /* Gris elegante */
+}
+
+.skills-bar-fill-ing {
+  background: linear-gradient(90deg, #410099, #6001d2); /* Morado Yahoo! */
+}
+
+/* ========================================================
+   CONTENEDOR DEL BOTÓN Y LAS ONDAS
+======================================================== */
+
+.launch-container {
+  width: 90%;
+  max-width: 700px; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem; 
+  margin-top: -2rem; 
+  margin-bottom: 3rem; 
+  z-index: 10;
+}
+
+.wave-container {
+  flex: 1; 
+  display: flex;
+  align-items: center;
+  color: var(--border);
+  transition: all 0.3s ease;
+}
+
+.wave-svg {
+  width: 100%;
+  height: auto;
+  max-height: 25px; 
+}
+
+.launch-btn {
+  background-color: var(--text-h);
+  color: var(--bg);
+  padding: 10px 24px;
+  border-radius: 50px;
+  font-family: var(--sans);
+  font-size: 0.9rem; /* Botón más elegante */
+  font-weight: 900;
+  border: none;
+  cursor: pointer;
+  white-space: nowrap; 
+  transition: all 0.3s ease;
+  box-shadow: var(--shadow);
+  z-index: 2; 
+}
+
+.btn-rocket-icon {
+  margin-right: 8px;
+  font-size: 1.1rem;
+  vertical-align: middle;
+  display: inline-block;
+  transform: translateY(-1px); 
+}
+
+.launch-btn:hover {
+  transform: translateY(-5px);
+  background-color: #410099; 
+  color: #fff;
+  box-shadow: 0 15px 25px rgba(65, 0, 153, 0.3);
+}
+
+.launch-container:hover .wave-container {
+  color: #410099; 
+  transform: scaleY(1.1); 
+}
+
+.tech-bottom-line {
+  width: 90%; 
+  max-width: 1200px; 
+  height: 1px;
+  background-color: var(--border); 
+  margin-bottom: 4rem; 
+}
+
+/* ========================================================
+   ANIMACIONES DEL COHETE Y EXPLOSIÓN
+======================================================== */
+
+.animation-overlay {
+  position: fixed;
+  top: 0; left: 0; width: 100%; height: 100%;
+  pointer-events: none; 
+  z-index: 9998;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.rocket-img {
+  width: 180px; 
+  height: auto;
+}
+
+.flying {
+  animation: flyUp 1.2s cubic-bezier(0.5, 0, 0.2, 1) forwards;
+}
+
+@keyframes flyUp {
+  0% { transform: translateY(100vh) scale(0.5); opacity: 0; }
+  10% { opacity: 1; }
+  100% { transform: translateY(0) scale(1); }
+}
+
+.explosion-img {
+  width: 350px; 
+  height: auto;
+}
+
+.boom {
+  animation: explodePulse 0.5s ease-out forwards;
+}
+
+@keyframes explodePulse {
+  0% { transform: scale(0.5); opacity: 0; }
+  50% { transform: scale(1.2); opacity: 1; filter: brightness(1.5); }
+  100% { transform: scale(1.5); opacity: 0; }
+}
+
+/* ========================================================
+   MODAL TECH STACK: DOS COLUMNAS Y BARRAS FINAS
+======================================================== */
+
+.tech-modal-overlay {
+  position: fixed;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background-color: rgba(0, 0, 0, 0.85); 
+  backdrop-filter: blur(5px);
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: fadeIn 0.4s ease forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.tech-modal-content {
+  background-color: var(--bg);
+  width: 95%;
+  max-width: 850px; /* Más ancho para que quepan las dos columnas */
+  padding: 3rem 2.5rem;
+  border-radius: 15px;
+  position: relative;
+  box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+  animation: slideUp 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+@keyframes slideUp {
+  from { transform: translateY(50px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.close-modal-btn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  color: var(--text);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.close-modal-btn:hover {
+  color: #410099;
+  transform: rotate(90deg);
+}
+
+.modal-title {
+  font-family: var(--heading);
+  font-size: 1.8rem;
+  text-align: center;
+  margin-bottom: 2.5rem;
+  color: var(--text-h);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* GRID DE DOS COLUMNAS */
+.modal-columns-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+}
+
+.column-subtitle {
+  font-size: 0.95rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  margin: 0 0 1.5rem 0;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 8px;
+}
+
+.text-marcos {
+  color: var(--text-h);
+}
+
+.text-devsastroso {
+  color: #410099; /* Resalta tu alias en morado */
+}
+
+/* BARRAS DE PROGRESO SLEEK */
+.bars-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.bar-row {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.bar-label {
+  font-family: var(--sans);
+  font-weight: 600;
+  font-size: 0.8rem; /* Texto más pequeño */
+  color: var(--text-h);
+}
+
+.bar-track {
+  width: 100%;
+  height: 12px; /* Barras mucho más delgadas */
+  background-color: var(--code-bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+}
+
+/* TODAS LAS BARRAS EN MORADO YAHOO! */
+.bar-fill {
+  height: 100%;
+  border-radius: 12px;
+  background-color: #410099;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-right: 8px;
+  width: 0; 
+  animation: fillBar 1.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+  animation-delay: 0.3s; 
+  box-shadow: 0 0 10px rgba(65, 0, 153, 0.3);
+}
+
+.bar-fill span {
+  color: #fff;
+  font-weight: bold;
+  font-size: 0.65rem; /* Porcentajes miniaturas */
+  font-family: var(--mono);
+  opacity: 0;
+  animation: showText 0.5s ease forwards;
+  animation-delay: 1.5s; 
+}
+
+@keyframes fillBar {
+  from { width: 0 !important; } 
+}
+
+@keyframes showText {
+  to { opacity: 1; }
+}
+
+/* --- RESPONSIVO PARA MÓVILES --- */
+@media (max-width: 768px) {
+  .modal-columns-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .tech-modal-content {
+    padding: 2rem 1.5rem;
+    max-height: 85vh;
+    overflow-y: auto;
+  }
+
+  .wave-container {
+    display: none;
+  }
+}

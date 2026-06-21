@@ -1,0 +1,108 @@
+/* src/components/PhilosophyBlock/PhilosophyBlock.css */
+
+.philosophy-container {
+  padding-top: 12rem; 
+  padding-left: 4rem; 
+  padding-right: 4rem; 
+  width: 100%;
+}
+
+.philosophy-line {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  line-height: 1.2;
+  font-size: 1.05rem; 
+  text-align: left;
+}
+
+.philosophy-tagline {
+  color: #888888; 
+  font-weight: 400;
+  margin-right: 0.3rem; 
+}
+
+.philosophy-text {
+  color: var(--text-color); 
+  font-weight: 500; 
+}
+
+/* --- 1. Vista Escritorio Grande (Monitores amplios) --- */
+@media (min-width: 769px) {
+  .philosophy-container {
+    display: grid;
+    /* EL CAMBIO MAESTRO:
+       Col 1: 300px (Respeta el Logo)
+       Col 2: max-content (El texto toma EXACTAMENTE su tamaño, previniendo el acordeón)
+       Col 3: 1fr (Todo el espacio infinito de monitores grandes se queda a la derecha) */
+    grid-template-columns: 300px max-content 1fr; 
+    row-gap: 0.2rem; 
+  }
+
+  .line-menu {
+    grid-column: 2; 
+    grid-row: 1;
+    /* Quitamos el padding protector porque ya no lo necesitamos */
+    padding-right: 0; 
+  }
+
+  .line-logo {
+    grid-column: 1 / span 2; 
+    grid-row: 2;
+    margin-left: -6px; 
+    padding-right: 0;
+  }
+
+  .philosophy-player {
+    grid-column: 3;
+    grid-row: 1 / span 2;
+    display: flex;
+    /* Al alinear a flex-start en la columna 3, se pega inmediatamente después del texto */
+    justify-content: flex-start; 
+    align-items: flex-start; 
+    
+    /* ESTA ES TU PALANCA DE CONTROL:
+       Ajusta este número para alejar o acercar el reproductor al texto */
+    margin-left: 17rem; 
+  }
+}
+
+/* --- 2. Vista Laptops Pequeñas / Tablets (EL SALVAVIDAS) --- */
+/* Se activa solo cuando la pantalla es mayor a un celular pero menor a un monitor grande */
+@media (min-width: 769px) and (max-width: 1150px) {
+  .philosophy-container {
+    /* Eliminamos la tercera columna para que el texto respire y ocupe todo */
+    grid-template-columns: 300px 1fr; 
+  }
+
+  .line-menu, .line-logo {
+    padding-right: 0; /* Ya no necesitamos el escudo aquí */
+  }
+
+  .philosophy-player {
+    grid-column: 2; /* Lo pasamos a la misma columna del menú/texto */
+    grid-row: 3; /* Lo bajamos a una nueva fila */
+    justify-content: flex-start; /* Lo alineamos a la izquierda para que se vea limpio */
+    margin-top: 2rem; /* Le damos aire respecto al texto */
+  }
+}
+
+/* --- 3. Responsividad (Móvil) --- */
+@media (max-width: 768px) {
+  .philosophy-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem; 
+    padding-top: 8rem;
+    padding-left: 2rem; 
+    padding-right: 2rem;
+  }
+
+  .philosophy-line {
+    font-size: 0.95rem; 
+  }
+
+  .philosophy-player {
+    order: 3; 
+    margin-top: 2rem; 
+    align-self: center; 
+  }
+}

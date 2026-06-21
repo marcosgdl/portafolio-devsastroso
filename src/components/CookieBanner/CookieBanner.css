@@ -1,0 +1,112 @@
+/* src/components/CookieBanner/CookieBanner.css */
+
+.cookie-banner-wrapper {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10000;
+  width: 90%;
+  max-width: 550px; 
+  animation: slideUpCookie 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+.cookie-banner {
+  background-color: #1a1a1a;
+  color: #ffffff;
+  border-radius: 20px;
+  padding: 20px 30px 20px 140px; /* Espacio para el avatar */
+  display: flex;
+  align-items: center;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+  position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  overflow: visible; 
+}
+
+/* --- EFECTO OUT OF BOUNDS --- */
+.cookie-avatar-container {
+  position: absolute;
+  left: 10px;
+  bottom: 0; 
+  width: 140px;
+  height: 200px; 
+  pointer-events: none; 
+  z-index: 10;
+}
+
+.cookie-avatar {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: bottom;
+  transition: transform 0.1s ease;
+  filter: drop-shadow(5px 5px 10px rgba(0,0,0,0.5));
+}
+
+/* --- TEXTOS Y BOTONES --- */
+.cookie-info {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%; /* Ocupa todo el espacio disponible para poder centrar el botón correctamente */
+}
+
+.cookie-info p {
+  margin: 0;
+  font-size: 0.85rem; 
+  font-weight: 500;
+  line-height: 1.4;
+  color: #e0e0e0; 
+  text-align: center; /* Opcional: Centra también el texto para que vaya a juego con el botón */
+}
+
+.cookie-actions {
+  display: flex;
+  justify-content: center; /* 🚀 ¡MÁGIA: Botón centrado horizontalmente! */
+}
+
+.cookie-btn-accept {
+  background-color: #410099; /* Morado Yahoo */
+  color: white;
+  border: none;
+  padding: 8px 24px; 
+  border-radius: 30px;
+  font-weight: bold;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(65, 0, 153, 0.4);
+}
+
+.cookie-btn-accept:hover {
+  background-color: #5a00d1;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(65, 0, 153, 0.6);
+}
+
+@keyframes slideUpCookie {
+  from { transform: translate(-50%, 150%); opacity: 0; }
+  to { transform: translate(-50%, 0); opacity: 1; }
+}
+
+/* --- MODO CELULAR --- */
+@media (max-width: 600px) {
+  .cookie-banner {
+    padding: 100px 20px 20px 20px; 
+    text-align: center;
+    max-width: 90%;
+  }
+  
+  .cookie-avatar-container {
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: auto;
+    top: -60px; 
+    height: 160px;
+  }
+
+  .cookie-actions {
+    justify-content: center;
+  }
+}
