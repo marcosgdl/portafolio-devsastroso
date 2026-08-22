@@ -11,7 +11,6 @@
 /* ========================================================
    SECCIÓN: DISTRIBUCIÓN DE COMPETENCIAS (TOP)
 ======================================================== */
-
 .tech-skills-bar-section {
   width: 100%;
   max-width: 1400px;
@@ -61,7 +60,7 @@
 
 .bar-track-main {
   width: 100%;
-  height: 24px; /* Barra superior delgada */
+  height: 24px; 
   background-color: var(--bg); 
   border: 1px solid var(--border);
   border-radius: 50px; 
@@ -83,22 +82,21 @@
   color: #fff;
   font-family: var(--sans);
   font-weight: bold;
-  font-size: 0.75rem; /* Texto más pequeño */
+  font-size: 0.75rem; 
   white-space: nowrap; 
 }
 
 .skills-bar-fill-code {
-  background: linear-gradient(90deg, #2b2c34, #3f414d); /* Gris elegante */
+  background: linear-gradient(90deg, #2b2c34, #3f414d); 
 }
 
 .skills-bar-fill-ing {
-  background: linear-gradient(90deg, #410099, #6001d2); /* Morado Yahoo! */
+  background: linear-gradient(90deg, #410099, #6001d2); 
 }
 
 /* ========================================================
    CONTENEDOR DEL BOTÓN Y LAS ONDAS
 ======================================================== */
-
 .launch-container {
   width: 90%;
   max-width: 700px; 
@@ -131,7 +129,7 @@
   padding: 10px 24px;
   border-radius: 50px;
   font-family: var(--sans);
-  font-size: 0.9rem; /* Botón más elegante */
+  font-size: 0.9rem; 
   font-weight: 900;
   border: none;
   cursor: pointer;
@@ -172,7 +170,6 @@
 /* ========================================================
    ANIMACIONES DEL COHETE Y EXPLOSIÓN
 ======================================================== */
-
 .animation-overlay {
   position: fixed;
   top: 0; left: 0; width: 100%; height: 100%;
@@ -216,7 +213,6 @@
 /* ========================================================
    MODAL TECH STACK: DOS COLUMNAS Y BARRAS FINAS
 ======================================================== */
-
 .tech-modal-overlay {
   position: fixed;
   top: 0; left: 0; width: 100%; height: 100%;
@@ -235,20 +231,17 @@
 }
 
 .tech-modal-content {
-  /* 🚀 SOLUCIÓN 1: Matamos el modo oscuro forzando los colores */
   background-color: #ffffff !important; 
   color: #000000 !important; 
-  /* 🚀 SOLUCIÓN 2: Preparamos el terreno para el botón fijo */
   position: relative;
-  max-height: 85vh; /* Evita que el modal sea más alto que la pantalla del celular */
+  max-height: 85vh; 
   display: flex;
   flex-direction: column;
-  overflow: hidden; /* Esto es vital: evita el scroll en todo el cuadro */
+  overflow: hidden; /* VITAL: Bloquea el scroll general para que la X no se mueva */
   width: 95%;
-  max-width: 850px; /* Más ancho para que quepan las dos columnas */
-  padding: 3rem 2.5rem;
+  max-width: 850px; 
+  padding: 3rem 2.5rem 1.5rem 2.5rem; /* Ajusté el padding para equilibrar */
   border-radius: 15px;
-  position: relative;
   box-shadow: 0 25px 50px rgba(0,0,0,0.5);
   animation: slideUp 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
 }
@@ -262,40 +255,41 @@
   position: absolute;
   top: 15px;
   right: 15px;
-  z-index: 99; /* 🚀 MAGIA 1: Siempre flota por encima de todo */
+  z-index: 99; 
   background: transparent;
   border: none;
   font-size: 1.5rem;
-  color: #000000; /* 🚀 MAGIA 2: Adiós var(--text). Siempre será negra para que contraste con tu fondo blanco */
+  color: #000000 !important; /* VITAL: Fuerza el color negro */
   cursor: pointer;
   transition: all 0.2s;
 }
 
-/* Opcional: Para que se note que es un botón al pasar el dedo o el mouse */
 .close-modal-btn:hover {
   transform: scale(1.1);
-  color: #e81123; /* Un toque de rojo al estilo de cerrar ventana */
+  color: #e81123 !important; 
 }
 
-.modal-title {
-  font-family: var(--heading);
-  font-size: 1.8rem;
-  text-align: center;
-  margin-bottom: 2.5rem;
-  color: var(--text-h);
-  text-transform: uppercase;
-  letter-spacing: 2px;
-}
-
-/* GRID DE DOS COLUMNAS */
+/* GRID DE DOS COLUMNAS (AQUÍ VIVE EL SCROLL) */
 .modal-columns-grid {
-  /* 🚀 SOLUCIÓN 4: El scroll ahora vive solo aquí adentro */
   overflow-y: auto; 
-  margin-top: 30px; /* Le damos espacio arriba para que el texto no choque con la 'X' */
-  padding-right: 5px; /* Un pequeño respiro para que la barra de scroll no se pegue tanto */
+  margin-top: 10px; 
+  padding-right: 15px; /* Espacio para que la barra de scroll no se vea encimada */
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 3rem;
+}
+
+/* Estilización de la barra de scroll para que se vea elegante */
+.modal-columns-grid::-webkit-scrollbar {
+  width: 6px;
+}
+.modal-columns-grid::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+  border-radius: 10px;
+}
+.modal-columns-grid::-webkit-scrollbar-thumb {
+  background: #c1c1c1; 
+  border-radius: 10px;
 }
 
 .column-subtitle {
@@ -304,16 +298,17 @@
   letter-spacing: 1px;
   margin: 0 0 1.5rem 0;
   text-transform: uppercase;
-  border-bottom: 1px solid var(--border);
+  border-bottom: 1px solid #e0e0e0;
   padding-bottom: 8px;
+  color: #333333 !important; /* VITAL: Evita que se vuelva blanco */
 }
 
 .text-marcos {
-  color: var(--text-h);
+  color: #000000 !important; 
 }
 
 .text-devsastroso {
-  color: #410099; /* Resalta tu alias en morado */
+  color: #410099 !important; 
 }
 
 /* BARRAS DE PROGRESO SLEEK */
@@ -332,21 +327,20 @@
 .bar-label {
   font-family: var(--sans);
   font-weight: 600;
-  font-size: 0.8rem; /* Texto más pequeño */
-  color: var(--text-h);
+  font-size: 0.8rem; 
+  color: #333333 !important; /* VITAL: Letras gris oscuro/negras garantizadas */
 }
 
 .bar-track {
   width: 100%;
-  height: 12px; /* Barras mucho más delgadas */
-  background-color: var(--code-bg);
-  border: 1px solid var(--border);
+  height: 12px; 
+  background-color: #f0f0f0; /* Fondo gris claro forzado */
+  border: 1px solid #cccccc;
   border-radius: 12px;
   overflow: hidden;
   position: relative;
 }
 
-/* TODAS LAS BARRAS EN MORADO YAHOO! */
 .bar-fill {
   height: 100%;
   border-radius: 12px;
@@ -362,9 +356,9 @@
 }
 
 .bar-fill span {
-  color: #fff;
+  color: #ffffff !important;
   font-weight: bold;
-  font-size: 0.65rem; /* Porcentajes miniaturas */
+  font-size: 0.65rem; 
   font-family: var(--mono);
   opacity: 0;
   animation: showText 0.5s ease forwards;
@@ -379,17 +373,41 @@
   to { opacity: 1; }
 }
 
-/* --- RESPONSIVO PARA MÓVILES --- */
+/* ========================================================
+   RESPONSIVO PARA MÓVILES (COMPACTO Y ELEGANTE)
+======================================================== */
 @media (max-width: 768px) {
+  .tech-modal-content {
+    padding: 3rem 1.5rem 1.5rem 1.5rem; /* Más espacio arriba para la X */
+    max-height: 80vh;
+    /* 🚀 MAGIA: Eliminado el overflow-y: auto de aquí, que era lo que rompía la X */
+  }
+
   .modal-columns-grid {
     grid-template-columns: 1fr;
-    gap: 2rem;
+    gap: 1.5rem; /* Menos espacio entre columnas */
+    margin-top: 0;
   }
   
-  .tech-modal-content {
-    padding: 2rem 1.5rem;
-    max-height: 85vh;
-    overflow-y: auto;
+  .column-subtitle {
+    font-size: 0.9rem !important; /* Títulos un poco más pequeños */
+    margin-bottom: 12px;
+  }
+
+  .bar-row {
+    gap: 4px; /* Pegamos más el texto a la barra */
+  }
+
+  .bar-label {
+    font-size: 0.75rem !important; /* Texto de habilidades más fino */
+  }
+
+  .bar-track {
+    height: 14px; /* Barras ligeramente más delgadas en celular */
+  }
+
+  .bars-container {
+    gap: 0.8rem; /* Pegamos más las barras entre sí */
   }
 
   .wave-container {
