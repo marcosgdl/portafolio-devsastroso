@@ -235,7 +235,15 @@
 }
 
 .tech-modal-content {
-  background-color: var(--bg);
+  /* 🚀 SOLUCIÓN 1: Matamos el modo oscuro forzando los colores */
+  background-color: #ffffff !important; 
+  color: #000000 !important; 
+  /* 🚀 SOLUCIÓN 2: Preparamos el terreno para el botón fijo */
+  position: relative;
+  max-height: 85vh; /* Evita que el modal sea más alto que la pantalla del celular */
+  display: flex;
+  flex-direction: column;
+  overflow: hidden; /* Esto es vital: evita el scroll en todo el cuadro */
   width: 95%;
   max-width: 850px; /* Más ancho para que quepan las dos columnas */
   padding: 3rem 2.5rem;
@@ -254,17 +262,19 @@
   position: absolute;
   top: 15px;
   right: 15px;
+  z-index: 99; /* 🚀 MAGIA 1: Siempre flota por encima de todo */
   background: transparent;
   border: none;
   font-size: 1.5rem;
-  color: var(--text);
+  color: #000000; /* 🚀 MAGIA 2: Adiós var(--text). Siempre será negra para que contraste con tu fondo blanco */
   cursor: pointer;
   transition: all 0.2s;
 }
 
+/* Opcional: Para que se note que es un botón al pasar el dedo o el mouse */
 .close-modal-btn:hover {
-  color: #410099;
-  transform: rotate(90deg);
+  transform: scale(1.1);
+  color: #e81123; /* Un toque de rojo al estilo de cerrar ventana */
 }
 
 .modal-title {
@@ -279,6 +289,10 @@
 
 /* GRID DE DOS COLUMNAS */
 .modal-columns-grid {
+  /* 🚀 SOLUCIÓN 4: El scroll ahora vive solo aquí adentro */
+  overflow-y: auto; 
+  margin-top: 30px; /* Le damos espacio arriba para que el texto no choque con la 'X' */
+  padding-right: 5px; /* Un pequeño respiro para que la barra de scroll no se pegue tanto */
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 3rem;
