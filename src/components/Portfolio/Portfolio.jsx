@@ -1,6 +1,6 @@
 // src/components/Portfolio/Portfolio.jsx
 import React, { useRef } from 'react';
-import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
+import { FaChevronLeft, FaChevronRight, FaExternalLinkAlt } from 'react-icons/fa'; // 🚀 Nuevo icono agregado
 import './Portfolio.css';
 
 export default function Portfolio({ lang }) {
@@ -18,8 +18,15 @@ export default function Portfolio({ lang }) {
 
   const t = dictionary[lang] || dictionary.es;
 
-  // Tu lista real de proyectos con sus imágenes
+  // 🚀 Tu lista de proyectos (Visorías añadido al principio de la lista)
   const projects = [
+    { 
+      id: 10, 
+      title: 'visoriasluisflores.com', 
+      category: 'Full-Stack / React & Node', 
+      img: '/10.jpeg', // Solo asegúrate de subir la captura como 10.png en tu carpeta public
+      link: 'https://visoriasluisflores.com' 
+    },
     { id: 1, title: 'fantasy-bowl.com', category: 'Frontend-Backend-API', img: '/1.png' },
     { id: 2, title: 'Bot X', category: 'Python-Script-API', img: '/2.png' },
     { id: 3, title: 'cicocamezcala.com', category: 'Frontend-Backend-API', img: '/3.png' },
@@ -67,6 +74,13 @@ export default function Portfolio({ lang }) {
               {/* Contenedor de la imagen real */}
               <div className="card-image-wrapper">
                 <img src={project.img} alt={project.title} className="card-image" />
+                
+                {/* 🚀 CAPA DE ENLACE: Si el proyecto tiene link, mostramos el icono */}
+                {project.link && (
+                  <a href={project.link} target="_blank" rel="noopener noreferrer" className="card-overlay-link">
+                    <FaExternalLinkAlt className="external-icon" />
+                  </a>
+                )}
               </div>
               
               {/* Textos del proyecto */}
