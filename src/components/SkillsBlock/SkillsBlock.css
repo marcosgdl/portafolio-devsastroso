@@ -1,0 +1,457 @@
+/* src/components/SkillsBlock/SkillsBlock.css */
+
+.skills-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 6rem;
+}
+
+.skills-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 1000px;
+  margin-bottom: 2rem;
+  padding: 0 2rem;
+}
+
+.skills-main-title {
+  font-size: 3.5rem;
+  font-weight: 900;
+  letter-spacing: 0.15em;
+  margin: 0 2rem;
+  color: var(--text-color);
+  opacity: 0.9;
+}
+
+.skills-line {
+  flex: 1;
+  height: 2px;
+  background-color: var(--text-color);
+  opacity: 0.15;
+}
+
+/* --- SELECTOR MÓVIL --- */
+.skills-mobile-selector {
+  display: none;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  z-index: 20;
+}
+
+.mobile-btn {
+  padding: 10px 18px;
+  border: 2px solid rgba(128, 128, 128, 0.2);
+  background: transparent;
+  color: var(--text-color);
+  font-weight: 700;
+  border-radius: 30px;
+  font-family: "Roboto", sans-serif; 
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.mobile-btn.active.btn-joke,
+.mobile-btn.active.btn-real {
+  background-color: var(--text-color);
+  border-color: var(--text-color);
+  color: var(--bg-color, #fff);
+  box-shadow: 0 5px 15px rgba(128, 128, 128, 0.3);
+}
+
+/* --- SECCIÓN SPLIT (ESCRITORIO) --- */
+.skills-split-section {
+  position: relative;
+  display: flex;
+  width: 100%;
+  max-width: 1400px;
+  margin: 2rem auto 8rem auto;
+  min-height: 550px;
+  align-items: center;
+}
+
+.desktop-hover-zones {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  z-index: 10;
+  pointer-events: auto;
+}
+
+.hover-zone {
+  flex: 1;
+  height: 100%;
+  cursor: pointer;
+}
+
+.skills-half {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  z-index: 2;
+  transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.skills-text-content {
+  width: 100%;
+  max-width: 450px;
+}
+
+.left-side {
+  align-items: flex-end;
+  padding-right: 340px;
+}
+
+.right-side {
+  align-items: flex-start;
+  padding-left: 340px;
+}
+
+.text-left { text-align: left; }
+
+/* --- 1. TÍTULOS GRANDES --- */
+.skills-title {
+  font-family: "Roboto", sans-serif;
+  font-weight: 900;
+  font-size: 3rem; 
+  margin-bottom: 0.2rem; 
+  color: var(--text-color); 
+  transition: all 0.4s ease;
+  font-variation-settings: "wdth" 100;
+  letter-spacing: -0.04em; 
+}
+
+/* --- 2. TEXTO INTRODUCTORIO --- */
+.skills-intro {
+  font-family: sans-serif;
+  font-size: 0.95rem; 
+  font-weight: 300; 
+  color: #758390; 
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+  max-height: 100px; 
+  opacity: 1;
+  visibility: visible;
+  overflow: hidden;
+  transition: all 0.4s ease;
+}
+
+/* --- 3. REGLA MAESTRA DE LISTAS (¡La que se había borrado!) --- */
+.skills-list {
+  list-style: none; /* Esto elimina los puntitos negros de la foto */
+  padding: 0;
+  margin: 0;
+  opacity: 0; /* MAGIA: Las hace invisibles por defecto */
+  visibility: hidden;
+  transform: translateY(20px); 
+  transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.skills-list li {
+  display: flex;
+  align-items: center;
+}
+
+/* --- ESTILOS DE LA LISTA PROFESIONAL (Marcos Ingeniero) --- */
+.professional-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem; /* Mucho más pegaditos para que quepan los 11 */
+  margin-top: 1rem;
+}
+
+.professional-grid li {
+  font-size: 0.68rem; /* Letra finita y técnica */
+  margin-bottom: 0.5rem;
+  font-family: 'Roboto', sans-serif;
+  letter-spacing: 0.02em;
+}
+
+/* El toque del Morado YAHOO! para la ingeniería */
+.professional-grid .skill-icon {
+  color: #410099; 
+  opacity: 0.9;
+  font-size: 1.1rem;
+  margin-right: 12px; /* Separación del ícono con el texto */
+}
+
+/* En modo oscuro, lo hacemos brillar para que no se pierda */
+:root.dark .professional-grid .skill-icon {
+  color: #b070ff;
+}
+
+/* Animación sutil y corporativa al pasar el mouse */
+.professional-grid li:hover {
+  transform: translateX(5px);
+  color: #410099;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+:root.dark .professional-grid li:hover {
+  color: #b070ff;
+}
+
+/* --- 4. LA NOTA DE PAPEL (Modo DEVsastroso) --- */
+
+.paper-note {
+  position: relative;
+  background-color: #fdfdfd; 
+  padding: 1.5rem 1.5rem;
+  margin-top: 1.5rem;
+  box-shadow: 2px 8px 25px rgba(0,0,0,0.2);
+  font-family: 'Courier New', Courier, monospace; 
+  font-weight: 600;
+  
+  opacity: 0;
+  visibility: hidden;
+  transform: rotate(-3deg) translateY(20px); 
+  transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Borde de sierra superior (puro CSS) */
+.paper-note::before {
+  content: "";
+  position: absolute;
+  top: -10px; left: 0; right: 0; height: 10px;
+  background: linear-gradient(45deg, #fdfdfd 50%, transparent 50%) 0 0, 
+              linear-gradient(-45deg, #fdfdfd 50%, transparent 50%) 0 0;
+  background-size: 15px 15px;
+}
+
+/* Borde de sierra inferior (puro CSS) */
+.paper-note::after {
+  content: "";
+  position: absolute;
+  bottom: -10px; left: 0; right: 0; height: 10px;
+  background: linear-gradient(135deg, #fdfdfd 50%, transparent 50%) 0 0, 
+              linear-gradient(-135deg, #fdfdfd 50%, transparent 50%) 0 0;
+  background-size: 15px 15px;
+}
+
+/* Cintas adhesivas translúcidas */
+.tape {
+  position: absolute;
+  width: 90px;
+  height: 25px;
+  background-color: rgba(255, 255, 255, 0.4);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  backdrop-filter: blur(3px); 
+  z-index: 5;
+}
+
+.tape-top {
+  top: -15px;
+  left: -15px;
+  transform: rotate(-25deg);
+}
+
+.tape-bottom {
+  bottom: -15px;
+  right: -15px;
+  transform: rotate(-20deg);
+}
+
+/* Ajustes de la lista dentro del papel */
+.paper-note .skills-list {
+  margin-top: 0;
+  opacity: 1; 
+  visibility: visible;
+  transform: none; 
+}
+
+.paper-note .skills-list li {
+  color: #222; 
+  font-size: 0.7rem;
+  margin-bottom: 0.4rem;
+}
+
+/* AQUÍ ESTÁ EL MORADO YAHOO! Y EL TAMAÑO CORREGIDO */
+.paper-note .skill-icon {
+  color: #410099; /* El clásico y glorioso Morado YAHOO! */
+  opacity: 0.85; 
+  font-size: 1.2rem; /* ¡Aquí le devolvemos su tamaño normal! */
+  margin-right: 10px; /* Le damos respiración con el texto */
+  flex-shrink: 0; /* Evita que el ícono se encoja si el texto es largo */
+}
+
+.paper-note li:hover .skill-icon {
+  color: #6001d2; /* Un morado Yahoo más brillante al pasar el mouse */
+  opacity: 1;
+  transform: scale(1.1); /* Hacemos que crezca un poquito al pasar el mouse */
+}
+
+/* --- EVENTOS AL PASAR EL MOUSE (HOVER) --- */
+.skills-half.is-active .skills-title {
+  transform: scale(1.03);
+}
+
+.skills-half.is-active .skills-intro {
+  opacity: 0;
+  visibility: hidden;
+  max-height: 0;
+  margin-bottom: 0;
+  transform: translateY(-10px); 
+}
+
+/* Animación: Aparece la lista del Ingeniero */
+.right-side.is-active .skills-list {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* Animación: Aparece la Nota de Papel del DEVsastroso */
+.left-side.is-active .paper-note {
+  opacity: 1;
+  visibility: visible;
+  transform: rotate(-3deg) translateY(0);
+}
+
+.skills-split-section.mode-joke .right-side { opacity: 0.15; }
+.skills-split-section.mode-real .left-side { opacity: 0.15; }
+
+/* --- LA IMAGEN CENTRAL Y SUS MOVIMIENTOS --- */
+.skills-center-image {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 580px;
+  z-index: 1;
+  pointer-events: none;
+  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), filter 0.5s ease;
+}
+
+.skills-center-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 15px 35px rgba(0,0,0,0.15));
+}
+
+.skills-center-image.move-joke {
+  transform: translate(-50%, -50%) translateX(65px);
+}
+.skills-center-image.move-real {
+  transform: translate(-50%, -50%) translateX(-65px);
+}
+
+/* --- LÍNEA DE PISO --- */
+.skills-floor-line {
+  position: absolute;
+  bottom: 20px; 
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: var(--text-color);
+  opacity: 0.15;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* --- RESPONSIVIDAD --- */
+@media (max-width: 900px) {
+  /* 1. Evitamos que choque con tu menú fijo */
+  .skills-wrapper { 
+    margin-top: 8rem; 
+  }
+
+  .skills-header { margin-bottom: 1rem; }
+  .skills-main-title { font-size: 2.5rem; }
+  .skills-mobile-selector { display: flex; }
+  .desktop-hover-zones { display: none; }
+  
+  .skills-split-section {
+    flex-direction: column;
+    margin: 1rem auto 4rem auto;
+    min-height: auto;
+  }
+
+  .skills-center-image {
+    position: relative;
+    left: 0;
+    top: 0;
+    transform: none !important;
+    width: 85%;
+    max-width: 380px;
+    margin: 1rem auto; 
+    order: 2;
+    transition: all 0.5s ease;
+  }
+
+  .skills-center-image.move-joke img {
+    filter: drop-shadow(0 0 25px rgba(128, 128, 128, 0.3));
+  }
+  .skills-center-image.move-real img {
+    filter: drop-shadow(0 0 25px rgba(128, 128, 128, 0.3));
+  }
+
+  .skills-half {
+    width: 100%;
+    align-items: center;
+    padding: 0 1.5rem;
+    opacity: 1 !important;
+  }
+
+  .skills-text-content {
+    text-align: left;
+    max-width: 100%;
+  }
+
+  .left-side { order: 1; }
+  .right-side { order: 3; }
+
+  /* Reducimos un poco la fuente en móvil para que no se desborde */
+  .skills-title {
+    font-size: 2.8rem;
+    margin-bottom: 0.5rem;
+  }
+
+  /* 2. LA MAGIA: Aplastamos la nota de papel para que no ocupe espacio inactiva */
+  .paper-note {
+    max-height: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-top: 0;
+    overflow: hidden;
+    box-shadow: none; 
+  }
+
+  /* Cuando le damos clic al botón, el papel se expande y recupera su padding */
+  .left-side.is-active .paper-note {
+    max-height: 800px;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+    margin-top: 1rem;
+    box-shadow: 2px 8px 25px rgba(0,0,0,0.2);
+  }
+
+  /* 3. Hacemos lo mismo con la lista de Marcos Ingeniero */
+  .right-side .skills-list {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    margin-top: 0;
+    transform: translateY(-10px);
+    transition: all 0.4s ease;
+  }
+
+  .right-side.is-active .skills-list {
+    max-height: 400px;
+    opacity: 1;
+    transform: translateY(0);
+    margin-top: 1rem;
+  }
+
+  .skills-floor-line { display: none; }
+}

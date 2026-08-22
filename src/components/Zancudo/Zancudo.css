@@ -1,0 +1,156 @@
+/* src/components/Zancudo/Zancudo.css */
+
+/* --- 1. ANIMACIONES BASE --- */
+@keyframes aleteo {
+  0% { transform: rotate(-15deg) translateX(-2px) translateY(2px); }
+  100% { transform: rotate(15deg) translateX(2px) translateY(-2px); }
+}
+
+@keyframes latido {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.05); }
+}
+
+/* --- 2. ESTADOS DEL ZANCUDO --- */
+.zancudo-alive {
+  position: fixed;
+  z-index: 9999;
+  cursor: crosshair;
+  user-select: none;
+  transition: top 0.4s ease-in-out, left 0.4s ease-in-out;
+  animation: aleteo 0.05s infinite alternate;
+}
+
+.zancudo-hunted {
+  position: fixed;
+  z-index: 10001; 
+  user-select: none;
+  transition: top 0.8s ease-in-out, left 0.8s ease-in-out; 
+  animation: aleteo 0.1s infinite alternate;
+}
+
+/* 🚀 NUEVO: Caída dramática al suelo estilo gravedad real */
+.zancudo-dead {
+  position: fixed;
+  z-index: 9998;
+  user-select: none;
+  pointer-events: none;
+  /* El truco bezier simula la aceleración de caída */
+  transition: top 1.8s cubic-bezier(0.6, -0.28, 0.735, 0.045), left 1.8s linear, transform 0.5s ease-out;
+  opacity: 0.9;
+}
+
+/* LA IMAGEN DEL ZANCUDO ADENTRO */
+.zancudo-img {
+  width: 90px; 
+  height: auto;
+  transition: all 0.3s ease;
+}
+
+.zancudo-hunted .zancudo-img {
+  width: 130px; 
+  filter: drop-shadow(0 0 10px rgba(255, 0, 0, 0.8));
+}
+
+/* 🚀 NUEVO: Invierte la imagen del zancudo para que quede patas arriba al morir */
+.zancudo-dead .zancudo-img {
+  width: 100px;
+  transform: scaleY(-1) rotate(20deg); /* Patas arriba y un poco chueco */
+  filter: drop-shadow(2px 2px 5px rgba(0,0,0,0.3));
+}
+
+/* --- 3. OVERLAY (PANTALLA OSCURA DE CACERÍA) --- */
+.hunting-overlay {
+  position: fixed;
+  top: 0; 
+  left: 0;
+  width: 100vw; 
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 10000;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 80px;
+  cursor: none; 
+}
+
+.hunting-instructions {
+  color: #fff;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 22px;
+  font-weight: bold;
+  text-align: center;
+  background: rgba(65, 0, 153, 0.8); 
+  padding: 15px 30px;
+  border-radius: 8px;
+  pointer-events: auto; 
+  cursor: default; 
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  animation: latido 1s infinite alternate;
+}
+
+.hunting-instructions span {
+  font-size: 14px;
+  font-weight: normal;
+}
+
+.cancel-hunt-btn {
+  display: block;
+  margin: 15px auto 0;
+  padding: 5px 15px;
+  background: white;
+  color: #000;
+  border: 1px solid white;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.cancel-hunt-btn:hover { 
+  background: #555; 
+}
+
+/* --- 4. SPRAY MÁGICO (TU CURSOR PERSONALIZADO) --- */
+.custom-spray {
+  position: fixed;
+  pointer-events: none; 
+  z-index: 10005;
+  transform: translate(-45%, -10%); 
+  transition: transform 0.05s ease-out; 
+}
+
+.custom-spray img {
+  width: 260px; 
+  height: auto;
+}
+
+.custom-spray.spraying-active {
+  transform: translate(-45%, -10%) scale(0.9); 
+}
+
+/* =========================================
+   5. ADAPTACIÓN PARA CELULARES (RESPONSIVE)
+   ========================================= */
+@media (max-width: 768px) {
+  .custom-spray img {
+    width: 140px; 
+  }
+
+  .hunting-instructions {
+    font-size: 16px;
+    width: 85%;
+  }
+  
+  .zancudo-img {
+    width: 60px; 
+  }
+  
+  .zancudo-hunted .zancudo-img {
+    width: 90px;
+  }
+  
+  .zancudo-dead {
+    top: calc(100vh - 70px) !important; /* Ajuste del suelo para pantallas chicas */
+  }
+}

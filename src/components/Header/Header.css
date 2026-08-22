@@ -1,0 +1,311 @@
+/* --- VARIABLES Y CONFIGURACIÓN --- */
+:root {
+  --zi-header: 1000;
+  --zi-overlay: 500;
+  --burger-size: 1.8rem;
+}
+
+/* --- ESTILOS BASE (MOBILE-FIRST) --- */
+
+/* 1. Header en Móvil */
+/* --- ESTRUCTURA --- */
+.header {
+  position: fixed;
+  top: 0; 
+  left: 0;
+  width: 100%;
+  padding: 1.5rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: var(--zi-header);
+  
+  /* ESTA ES LA SOLUCIÓN: Usamos el color de fondo de tu tema en lugar de transparente */
+  background-color: var(--bg-color, #ffffff); 
+  
+  transition: background-color 0.3s ease;
+}
+
+/* Forzamos fondo transparente cuando el menú está abierto */
+.header.mobile-open {
+  background-color: transparent !important;
+}
+
+/* 2. Logo en Móvil */
+.logo {
+  font-size: 1.4rem; /* Un poco más pequeño en móvil */
+  font-weight: 900;
+  letter-spacing: -0.05em;
+  position: relative;
+  z-index: calc(var(--zi-header) + 1); /* Asegura que el logo esté arriba */
+}
+
+.logo-dev {
+  color: var(--logo-dev);
+  transition: color 0.5s ease;
+}
+
+.logo-sastroso {
+  color: var(--logo-sastroso);
+  transition: color 0.5s ease;
+}
+
+/* 3. Menú de Navegación de Escritorio (OCULTO POR DEFECTO EN MÓVIL) */
+.nav-menu {
+  display: none; /* Mobile-First: No se muestra */
+}
+
+/* 4. Controles en Móvil */
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem; /* Menos espacio en móvil */
+  position: relative;
+  z-index: calc(var(--zi-header) + 1); /* Asegura que los controles estén arriba */
+}
+
+/* Botón Hamburguesa (MOSTRADO POR DEFECTO EN MÓVIL) */
+.hamburger-btn {
+  background: transparent;
+  border: none;
+  color: inherit;
+  font-size: var(--burger-size);
+  cursor: pointer;
+  padding: 0.5rem;
+  display: flex; /* Mobile-First: Se muestra */
+  align-items: center;
+  justify-content: center;
+}
+
+/* Ocultamos los controles de escritorio en móvil */
+.controls .theme-toggle,
+.controls .lang-toggle {
+  display: none;
+}
+
+/* 5. Overlay del Menú Móvil (Estilos base iguales) */
+.mobile-menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  z-index: var(--zi-overlay);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+  transform: translateY(-20px);
+  transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s;
+}
+
+.mobile-menu-overlay.open {
+  opacity: 1;
+  pointer-events: auto;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.mobile-nav-list {
+  list-style: none;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+.mobile-nav-link {
+  font-size: 2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+.mobile-nav-link:hover {
+  opacity: 0.5;
+}
+
+.mobile-controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+/* --- ESTILOS PARA ESCRITORIO (MÁS DE 768px) --- */
+@media (min-width: 769px) {
+  /* 1. Header en Escritorio */
+  .header {
+    padding: 2.5rem 4rem; /* Recuperamos espaciado elegante */
+    display: grid; /* Grid es mejor para escritorio */
+    grid-template-columns: 300px 1fr auto;
+  }
+
+  /* 2. Logo en Escritorio */
+  .logo {
+    font-size: 1.6rem;
+  }
+
+  /* 3. MOSTRAR el Menú de Navegación de Escritorio */
+  .nav-menu {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+
+  .nav-link {
+    font-size: 0.5rem;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  .nav-link:hover {
+    opacity: 0.5;
+  }
+
+  /* 4. Controles en Escritorio */
+  .controls {
+    flex-direction: column; /* Vertical en escritorio */
+    align-items: flex-end;
+    gap: 0.1rem;
+  }
+
+  /* OCULTAR el botón Hamburguesa en Escritorio */
+  .hamburger-btn {
+    display: none !important; /* Forzamos la desaparición */
+  }
+
+  /* MOSTRAR los controles de escritorio */
+  .controls .theme-toggle,
+  .controls .lang-toggle {
+    display: flex;
+  }
+
+  .theme-toggle {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    color: inherit;
+    font-size: 0.7rem;
+    padding: 0.5rem;
+  }
+
+  .theme-toggle:hover .theme-dot {
+    transform: scale(1.2);
+  }
+
+  .theme-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: var(--text-color);
+    display: inline-block;
+    transition: transform 0.3s ease, background-color 0.5s ease;
+  }
+
+  .theme-label {
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    transition: color 0.5s ease;
+  }
+
+  .lang-toggle {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    color: inherit;
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    opacity: 0.5;
+    transition: opacity 0.3s ease;
+    padding-right: 0.5rem;
+  }
+
+  .lang-toggle:hover {
+    opacity: 1;
+  }
+
+  /* Forzamos que el Overlay esté CERRADO en escritorio */
+  .mobile-menu-overlay {
+    display: none !important;
+  }
+}
+
+/* --- RESET PARA QUE BOTONES SEAN TEXTO PLANO --- */
+.theme-toggle,
+.lang-toggle,
+.hamburger-btn {
+  background: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  cursor: pointer;
+  color: inherit;
+  font-family: inherit;
+}
+
+/* Estilo específico para el enlace de juegos */
+a.nav-games-link {
+  color: #410099 !important; 
+  font-weight: 900 !important; /* Subí el peso a 900 para que haga match con los títulos que hicimos hoy */
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+}
+
+/* Efecto hover para que se vea interactivo */
+a.nav-games-link:hover {
+  color: #6001d2 !important; /* Un morado un poco más brillante */
+  transform: scale(1.05);
+}
+
+/* Si tu tema oscuro oscurece el menú, el morado original se pierde. 
+   Esta regla lo cambia a un morado "neón" súper legible en fondos negros. */
+:root.dark a.nav-games-link,
+.dark a.nav-games-link {
+  color: #b070ff !important; 
+}
+
+/* =========================================
+   LA MANITA DEL ZANCUDO (INCLINADA)
+   ========================================= */
+.pointing-hand {
+  position: absolute;
+  top: 120%; 
+  left: 50%;
+  /* Aquí agregamos la inclinación con rotate(15deg) */
+  transform: translateX(-50%) rotate(15deg); 
+  color: #888; 
+  font-size: 1.5rem;
+  /* Cambiamos el nombre de la animación para no confundirnos */
+  animation: bounceHandTilt 1.5s infinite ease-in-out;
+  pointer-events: none; 
+}
+
+/* Animación actualizada para que mantenga la inclinación mientras brinca */
+@keyframes bounceHandTilt {
+  0%, 100% { 
+    transform: translate(-50%, 0) rotate(15deg); 
+  }
+  50% { 
+    transform: translate(-50%, 8px) rotate(15deg); 
+  }
+}

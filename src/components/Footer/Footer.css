@@ -1,0 +1,144 @@
+/* src/components/Footer/Footer.css */
+
+.site-footer {
+  width: 100%;
+  padding: 1cm 2rem;
+  margin-top: 1rem;
+  background-color: transparent;
+}
+
+.footer-content {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+/* --- LADO IZQUIERDO: CONTADOR --- */
+.footer-left {
+  display: flex;
+  align-items: center;
+  gap: 15px; /* Separación entre el texto vertical y el número */
+}
+
+.visits-label {
+  /* Magia de CSS para girar el texto de abajo hacia arriba */
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  
+  color: #410099; /* Tu Morado Yahoo! */
+  font-weight: 900;
+  font-size: 1.2rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.visits-number {
+  font-size: 8rem; /* Gigante como en tu diseño */
+  font-weight: 900;
+  color: var(--text-color, #1a1a1a);
+  line-height: 0.8;
+  letter-spacing: -2px;
+}
+
+/* --- LADO DERECHO: TEXTOS --- */
+.footer-right {
+  text-align: right;
+}
+
+.footer-made-by {
+  margin: 0 0 5px 0;
+  font-size: 12px; /* Un poco más pequeño como pediste */
+  font-weight: 600;
+  color: var(--text-color, #1a1a1a);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 4px; /* Separación sutil entre palabras e íconos */
+}
+
+/* Colores y alineación para los íconos */
+.icon-heart {
+  color: #888888; 
+  font-size: 13px;
+}
+
+.icon-react {
+  color: #888888; /* Azul oficial de React */
+  font-size: 15px;
+  animation: spin 10s linear infinite; /* ¡Un pequeño extra! El logo gira lentamente */
+}
+
+.footer-karma {
+  margin: 0;
+  font-size: 12px; /* Aún más pequeño para que sea un disclaimer elegante */
+  font-weight: 500;
+  color: var(--text-color, #1a1a1a);
+  opacity: 0.6;
+}
+
+/* --- CORREO Y AÑO ELEGANTE --- */
+.footer-email {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end; /* Lo mantiene alineado a la derecha en PC */
+  gap: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-color, #1a1a1a);
+  text-decoration: none;
+  margin: 5px 0 10px 0;
+  transition: color 0.3s ease;
+}
+
+.footer-email:hover {
+  color: #410099; /* Tu Morado Yahoo! al pasar el mouse */
+}
+
+.icon-envelope {
+  font-size: 1rem;
+  color: #410099; /* Sobrecito morado para que resalte elegante */
+}
+
+.footer-year {
+  margin: 0;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--text-color, #1a1a1a);
+  opacity: 0.4;
+}
+
+/* Animación para el logo de React */
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* --- RESPONSIVE PARA CELULARES --- */
+@media (max-width: 768px) {
+  .footer-content {
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    padding-bottom: 2rem;
+  }
+
+  .footer-email {
+    justify-content: center;
+  }
+  
+  .footer-right {
+    text-align: center;
+    margin-top: 1rem;
+  }
+
+  .footer-made-by {
+    justify-content: center; /* Centramos el texto en móviles */
+    flex-wrap: wrap; /* Por si la pantalla es muy pequeña, no se corte el texto */
+  }
+}

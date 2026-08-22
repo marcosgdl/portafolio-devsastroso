@@ -1,0 +1,37 @@
+/* RESET ABSOLUTO */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* VARIABLES CSS (Light Mode por defecto) */
+:root {
+  --bg-color: #ffffff;
+  --text-color: #000000;
+  --logo-dev: #888888;
+  --logo-sastroso: #000000;
+}
+
+/* VARIABLES CSS (Dark Mode) */
+[data-theme='dark'] {
+  --bg-color: #000000;
+  --text-color: #ffffff;
+  --logo-dev: #ffffff;
+  --logo-sastroso: #aaaaaa;
+}
+
+html, body, #root {
+  width: 100%;
+  min-height: 100vh;
+  display: block;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  
+  /* Aplicamos las variables globales */
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  
+  /* Transición suave para toda la página */
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+
