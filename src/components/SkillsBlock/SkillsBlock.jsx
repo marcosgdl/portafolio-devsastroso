@@ -1,10 +1,10 @@
 // src/components/SkillsBlock/SkillsBlock.jsx
 import React, { useState } from 'react';
-// Añadimos íconos muy representativos y profesionales para cada punto
+// 🚀 Agregamos FaTimes a tus iconos importados para la "X"
 import { 
   FaHtml5, FaServer, FaReact, FaRobot, FaBolt, FaMobileAlt, FaCode, 
   FaCubes, FaPencilRuler, FaProjectDiagram, FaNetworkWired, FaGitAlt, 
-  FaLayerGroup, FaDatabase 
+  FaLayerGroup, FaDatabase, FaTimes 
 } from 'react-icons/fa';
 import './SkillsBlock.css';
 
@@ -14,7 +14,7 @@ export default function SkillsBlock({ lang }) {
   const dictionary = {
     es: {
       mainTitle: "SKILLS",
-      selectPersonality: "SELECCIONA ALGUNA DE MIS PERSONALIDADES", // 🚀 NUEVO SUBTÍTULO
+      selectPersonality: "SELECCIONA ALGUNA DE MIS PERSONALIDADES",
       jokeTitle: "<DEVsastroso>",
       introJoke: "¡Si esto no compila me muero!",
       joke1: "Programo HTML directo en el Notepad (y a veces en Word).",
@@ -39,7 +39,7 @@ export default function SkillsBlock({ lang }) {
     },
     en: {
       mainTitle: "SKILLS",
-      selectPersonality: "CHOOSE ONE OF MY PERSONALITIES", // 🚀 NUEVO SUBTÍTULO
+      selectPersonality: "CHOOSE ONE OF MY PERSONALITIES",
       jokeTitle: "<DEVsastroso>",
       introJoke: "If this doesn't compile, I'm dead!",
       joke1: "I code HTML directly in Notepad (and sometimes Word).",
@@ -69,16 +69,15 @@ export default function SkillsBlock({ lang }) {
   return (
     <div className="skills-wrapper">
       
-      {/* EL ENCABEZADO DE SIEMPRE */}
       <div className="skills-header">
         <div className="skills-line"></div>
         <h2 className="skills-main-title">{t.mainTitle}</h2>
         <div className="skills-line"></div>
       </div>
 
-      {/* 🚀 EL NUEVO SUBTÍTULO EN MEDIO */}
       <p className="skills-personality-subtitle">{t.selectPersonality}</p>
 
+      {/* Los botones viejos de móvil ya los ocultaremos en CSS, pero los dejamos intactos */}
       <div className="skills-mobile-selector">
         <button 
           className={`mobile-btn btn-joke ${activeMode === 'joke' ? 'active' : ''}`}
@@ -109,7 +108,7 @@ export default function SkillsBlock({ lang }) {
           />
         </div>
 
-        {/* MITAD IZQUIERDA: DEVsastroso */}
+        {/* MITAD IZQUIERDA: DEVsastroso (En móvil aparecerá a la DERECHA) */}
         <div className={`skills-half left-side ${activeMode === 'joke' ? 'is-active' : ''}`}>
           <div className="skills-text-content text-left">
             <h3 className="skills-title">{t.jokeTitle}</h3>
@@ -130,11 +129,38 @@ export default function SkillsBlock({ lang }) {
           </div>
         </div>
 
-        <div className={`skills-center-image move-${activeMode}`}>
+        {/* IMAGEN DE ESCRITORIO (Intocable, la ocultamos en móvil) */}
+        <div className={`skills-center-image move-${activeMode} desktop-only`}>
           <img src="/skills-me.png" alt="Marcos Doble Personalidad" />
         </div>
 
-        {/* MITAD DERECHA: INGENIERO */}
+        {/* 🚀 LA MAGIA MÓVIL (Las dos fotos separadas que pidió Marcos) */}
+        <div className="mobile-only-visuals">
+          {activeMode !== 'none' && (
+            <button 
+              className={`mobile-close-x ${activeMode === 'joke' ? 'btn-right' : 'btn-left'}`} 
+              onClick={() => setActiveMode('none')}
+            >
+              <FaTimes />
+            </button>
+          )}
+          
+          <div 
+            className={`mobile-face-wrap dev-face ${activeMode === 'real' ? 'hide-face' : ''}`} 
+            onClick={() => setActiveMode('joke')}
+          >
+            <img src="/dev.png" alt="Devsastroso" />
+          </div>
+          
+          <div 
+            className={`mobile-face-wrap ing-face ${activeMode === 'joke' ? 'hide-face' : ''}`} 
+            onClick={() => setActiveMode('real')}
+          >
+            <img src="/ing.png" alt="Ingeniero" />
+          </div>
+        </div>
+
+        {/* MITAD DERECHA: INGENIERO (En móvil aparecerá a la IZQUIERDA) */}
         <div className={`skills-half right-side ${activeMode === 'real' ? 'is-active' : ''}`}>
           <div className="skills-text-content text-left">
             <h3 className="skills-title">{t.realTitle}</h3>
