@@ -96,6 +96,8 @@
 }
 
 .skills-text-content { width: 100%; max-width: 450px; }
+
+/* 🚀 AQUÍ ESTÁ LA CURA DEL MENÚ APLASTADO (Nombres protegidos) */
 .skills-left-side { align-items: flex-end; padding-right: 340px; }
 .skills-right-side { align-items: flex-start; padding-left: 340px; }
 .text-left { text-align: left; }
@@ -151,6 +153,7 @@
 .paper-note .skill-icon { color: #410099; opacity: 0.85; font-size: 1.2rem; margin-right: 10px; flex-shrink: 0; }
 .paper-note li:hover .skill-icon { color: #6001d2; opacity: 1; transform: scale(1.1); }
 
+/* 🚀 NOMBRES PROTEGIDOS PARA LAS ANIMACIONES */
 .skills-left-side.is-active .skills-title { transform: scale(1.03); }
 .skills-left-side.is-active .skills-intro { opacity: 0; visibility: hidden; max-height: 0; margin-bottom: 0; transform: translateY(-10px); }
 .skills-right-side.is-active .skills-list { opacity: 1; visibility: visible; transform: translateY(0); }
@@ -246,23 +249,23 @@
     position: absolute;
     top: 12px;
     z-index: 9999 !important; /* Lo mandamos a la capa más alta por encima del texto */
-    background: rgba(255, 255, 255, 0.9); 
+    background: rgba(255, 255, 255, 0.9); /* Fondito blanco semi-transparente para que destaque */
     border: 1px solid rgba(65, 0, 153, 0.2);
-    border-radius: 50%; 
+    border-radius: 50%; /* Lo hacemos un botoncito circular muy cómodo al tacto */
     width: 36px;
     height: 36px;
     display: flex;
     align-items: center;
     justify-content: center;
     color: #410099;
-    font-size: 1.2rem; 
+    font-size: 1.2rem; /* Un tamaño equilibrado */
     cursor: pointer;
     box-shadow: 0 4px 10px rgba(0,0,0,0.15);
   }
   
   /* Si DEVsastroso está activo, la X va a la derecha con su texto. Y viceversa. */
-  .mobile-close-x.btn-right { right: 15px; }
-  .mobile-close-x.btn-left { left: 15px; }
+  .mobile-close-x.btn-right { right: 5px; }
+  .mobile-close-x.btn-left { left: 5px; }
 
   /* 5. Los textos de las habilidades (Entran a sustituir a las fotos) */
   .skills-half {
@@ -279,6 +282,7 @@
     background-color: transparent;
   }
 
+  /* 🚀 MÁS NOMBRES PROTEGIDOS PARA MÓVIL */
   /* DEVsastroso (Joke): Originalmente izquierda, ahora ocupa la DERECHA para suplir al Ing. */
   .skills-left-side {
     left: 50%;
@@ -322,7 +326,7 @@
   .professional-grid li { font-size: 0.55rem; margin-bottom: 0.35rem; }
   .professional-grid .skill-icon { font-size: 0.75rem; margin-right: 4px; }
 
-  /* Forzamos que se muestren las listas al activarse */
+  /* 🚀 Forzamos que se muestren las listas al activarse (nombres protegidos) */
   .skills-left-side.is-active .paper-note,
   .skills-right-side.is-active .skills-list {
     opacity: 1; visibility: visible; transform: none;
