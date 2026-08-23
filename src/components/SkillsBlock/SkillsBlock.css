@@ -96,8 +96,8 @@
 }
 
 .skills-text-content { width: 100%; max-width: 450px; }
-.left-side { align-items: flex-end; padding-right: 340px; }
-.right-side { align-items: flex-start; padding-left: 340px; }
+.skills-left-side { align-items: flex-end; padding-right: 340px; }
+.skills-right-side { align-items: flex-start; padding-left: 340px; }
 .text-left { text-align: left; }
 
 .skills-title {
@@ -151,13 +151,13 @@
 .paper-note .skill-icon { color: #410099; opacity: 0.85; font-size: 1.2rem; margin-right: 10px; flex-shrink: 0; }
 .paper-note li:hover .skill-icon { color: #6001d2; opacity: 1; transform: scale(1.1); }
 
-.skills-half.is-active .skills-title { transform: scale(1.03); }
-.skills-half.is-active .skills-intro { opacity: 0; visibility: hidden; max-height: 0; margin-bottom: 0; transform: translateY(-10px); }
-.right-side.is-active .skills-list { opacity: 1; visibility: visible; transform: translateY(0); }
-.left-side.is-active .paper-note { opacity: 1; visibility: visible; transform: rotate(-3deg) translateY(0); }
+.skills-left-side.is-active .skills-title { transform: scale(1.03); }
+.skills-left-side.is-active .skills-intro { opacity: 0; visibility: hidden; max-height: 0; margin-bottom: 0; transform: translateY(-10px); }
+.skills-right-side.is-active .skills-list { opacity: 1; visibility: visible; transform: translateY(0); }
+.skills-left-side.is-active .paper-note { opacity: 1; visibility: visible; transform: rotate(-3deg) translateY(0); }
 
-.skills-split-section.mode-joke .right-side { opacity: 0.15; }
-.skills-split-section.mode-real .left-side { opacity: 0.15; }
+.skills-split-section.mode-joke .skills-right-side { opacity: 0.15; }
+.skills-split-section.mode-real .skills-left-side { opacity: 0.15; }
 
 .skills-center-image {
   position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: 580px;
@@ -246,26 +246,23 @@
     position: absolute;
     top: 12px;
     z-index: 9999 !important; /* Lo mandamos a la capa más alta por encima del texto */
-    background: rgba(255, 255, 255, 0.9); /* Fondito blanco semi-transparente para que destaque */
+    background: rgba(255, 255, 255, 0.9); 
     border: 1px solid rgba(65, 0, 153, 0.2);
-    border-radius: 50%; /* Lo hacemos un botoncito circular muy cómodo al tacto */
+    border-radius: 50%; 
     width: 36px;
     height: 36px;
     display: flex;
     align-items: center;
     justify-content: center;
     color: #410099;
-    font-size: 1.2rem; /* Un tamaño equilibrado */
+    font-size: 1.2rem; 
     cursor: pointer;
     box-shadow: 0 4px 10px rgba(0,0,0,0.15);
   }
   
+  /* Si DEVsastroso está activo, la X va a la derecha con su texto. Y viceversa. */
   .mobile-close-x.btn-right { right: 15px; }
   .mobile-close-x.btn-left { left: 15px; }
-  
-  /* Si DEVsastroso está activo, la X va a la derecha con su texto. Y viceversa. */
-  .mobile-close-x.btn-right { right: 5px; }
-  .mobile-close-x.btn-left { left: 5px; }
 
   /* 5. Los textos de las habilidades (Entran a sustituir a las fotos) */
   .skills-half {
@@ -283,20 +280,20 @@
   }
 
   /* DEVsastroso (Joke): Originalmente izquierda, ahora ocupa la DERECHA para suplir al Ing. */
-  .left-side {
+  .skills-left-side {
     left: 50%;
     opacity: 0; pointer-events: none; visibility: hidden;
   }
-  .left-side.is-active {
+  .skills-left-side.is-active {
     opacity: 1; pointer-events: auto; visibility: visible;
   }
 
   /* Ingeniero (Real): Originalmente derecha, ahora ocupa la IZQUIERDA para suplir al Dev. */
-  .right-side {
+  .skills-right-side {
     left: 0;
     opacity: 0; pointer-events: none; visibility: hidden;
   }
-  .right-side.is-active {
+  .skills-right-side.is-active {
     opacity: 1; pointer-events: auto; visibility: visible;
   }
 
@@ -326,8 +323,8 @@
   .professional-grid .skill-icon { font-size: 0.75rem; margin-right: 4px; }
 
   /* Forzamos que se muestren las listas al activarse */
-  .left-side.is-active .paper-note,
-  .right-side.is-active .skills-list {
+  .skills-left-side.is-active .paper-note,
+  .skills-right-side.is-active .skills-list {
     opacity: 1; visibility: visible; transform: none;
   }
 }

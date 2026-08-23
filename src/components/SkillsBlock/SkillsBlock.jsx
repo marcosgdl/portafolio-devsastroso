@@ -1,6 +1,5 @@
 // src/components/SkillsBlock/SkillsBlock.jsx
 import React, { useState } from 'react';
-// 🚀 Agregamos FaTimes a tus iconos importados para la "X"
 import { 
   FaHtml5, FaServer, FaReact, FaRobot, FaBolt, FaMobileAlt, FaCode, 
   FaCubes, FaPencilRuler, FaProjectDiagram, FaNetworkWired, FaGitAlt, 
@@ -77,7 +76,6 @@ export default function SkillsBlock({ lang }) {
 
       <p className="skills-personality-subtitle">{t.selectPersonality}</p>
 
-      {/* Los botones viejos de móvil ya los ocultaremos en CSS, pero los dejamos intactos */}
       <div className="skills-mobile-selector">
         <button 
           className={`mobile-btn btn-joke ${activeMode === 'joke' ? 'active' : ''}`}
@@ -95,6 +93,16 @@ export default function SkillsBlock({ lang }) {
 
       <section className={`skills-split-section mode-${activeMode}`}>
         
+        {/* 🚀 EL BOTÓN "X" LIBERADO. Ahora manda sobre todas las capas. */}
+        {activeMode !== 'none' && (
+          <button 
+            className={`mobile-close-x ${activeMode === 'joke' ? 'btn-right' : 'btn-left'}`} 
+            onClick={() => setActiveMode('none')}
+          >
+            <FaTimes />
+          </button>
+        )}
+
         <div className="desktop-hover-zones">
           <div 
             className="hover-zone zone-left"
@@ -108,8 +116,8 @@ export default function SkillsBlock({ lang }) {
           />
         </div>
 
-        {/* MITAD IZQUIERDA: DEVsastroso (En móvil aparecerá a la DERECHA) */}
-        <div className={`skills-half left-side ${activeMode === 'joke' ? 'is-active' : ''}`}>
+        {/* 🚀 LE CAMBIAMOS EL NOMBRE A LAS CAPAS PARA NO ROMPER TU MENÚ GLOBAL */}
+        <div className={`skills-half skills-left-side ${activeMode === 'joke' ? 'is-active' : ''}`}>
           <div className="skills-text-content text-left">
             <h3 className="skills-title">{t.jokeTitle}</h3>
             <p className="skills-intro">{t.introJoke}</p>
@@ -129,22 +137,11 @@ export default function SkillsBlock({ lang }) {
           </div>
         </div>
 
-        {/* IMAGEN DE ESCRITORIO (Intocable, la ocultamos en móvil) */}
         <div className={`skills-center-image move-${activeMode} desktop-only`}>
           <img src="/skills-me.png" alt="Marcos Doble Personalidad" />
         </div>
 
-        {/* 🚀 LA MAGIA MÓVIL (Las dos fotos separadas que pidió Marcos) */}
         <div className="mobile-only-visuals">
-          {activeMode !== 'none' && (
-            <button 
-              className={`mobile-close-x ${activeMode === 'joke' ? 'btn-right' : 'btn-left'}`} 
-              onClick={() => setActiveMode('none')}
-            >
-              <FaTimes />
-            </button>
-          )}
-          
           <div 
             className={`mobile-face-wrap dev-face ${activeMode === 'real' ? 'hide-face' : ''}`} 
             onClick={() => setActiveMode('joke')}
@@ -160,8 +157,7 @@ export default function SkillsBlock({ lang }) {
           </div>
         </div>
 
-        {/* MITAD DERECHA: INGENIERO (En móvil aparecerá a la IZQUIERDA) */}
-        <div className={`skills-half right-side ${activeMode === 'real' ? 'is-active' : ''}`}>
+        <div className={`skills-half skills-right-side ${activeMode === 'real' ? 'is-active' : ''}`}>
           <div className="skills-text-content text-left">
             <h3 className="skills-title">{t.realTitle}</h3>
             <p className="skills-intro">{t.introReal}</p>
