@@ -1,6 +1,6 @@
 // src/components/Footer/Footer.jsx
 import React, { useState, useEffect } from 'react';
-import { FaHeart, FaReact, FaEnvelope } from 'react-icons/fa'; // 🚀 AGREGAMOS EL SOBRE
+import { FaHeart, FaReact, FaEnvelope } from 'react-icons/fa'; 
 import './Footer.css';
 
 export default function Footer({ lang }) {
@@ -10,11 +10,16 @@ export default function Footer({ lang }) {
   const currentYear = new Date().getFullYear();
 
   useEffect(() => {
-    // 🚀 Nueva API gratuita para el contador
-    fetch('https://api.countapi.xyz/hit/devsastroso/portafolio')
+    // 🚀 Llamada a nuestro propio backend invisible en Vercel KV
+    fetch('/api/contador')
       .then(res => res.json())
-      .then(data => setVisits(data.value)) // Ojo aquí: CountAPI usa 'data.value'
-      .catch(() => setVisits('103')); 
+      .then(data => {
+        // Si todo sale bien, mostramos el número real
+        if(data.visitas) {
+          setVisits(data.visitas);
+        }
+      })
+      .catch(() => setVisits('103')); // Si algo falla, dejamos un número de respaldo
   }, []);
 
   const t = {
