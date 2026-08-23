@@ -55,7 +55,7 @@
 
 
 /* =========================================================
-   SECCIÓN SPLIT (ESCRITORIO - INTACTA)
+   SECCIÓN SPLIT (ESCRITORIO)
 ========================================================= */
 .skills-split-section {
   position: relative;
@@ -278,7 +278,7 @@
 .skills-split-section.mode-real .right-side { opacity: 0.15; }
 
 /* =========================================================
-   LA IMAGEN DIVIDIDA (RESTAURADA A ORIGINAL PARA ESCRITORIO)
+   LA NUEVA IMAGEN DIVIDIDA
 ========================================================= */
 .skills-center-image {
   position: absolute;
@@ -299,16 +299,21 @@
   transform: translate(-50%, -50%) translateX(-65px);
 }
 
+/* 🚀 AQUÍ ESTÁ LA MAGIA QUE ARREGLA LAS FOTOS EN EL CELULAR 🚀 */
 .img-half {
   width: 50%;
+  display: flex; 
   transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
 }
 .img-half img {
   width: 100%;
-  height: auto;
+  height: 100%; 
+  object-fit: cover; 
+  object-position: top center; 
   display: block;
   filter: drop-shadow(0 15px 35px rgba(0,0,0,0.15));
 }
+
 
 .skills-floor-line {
   position: absolute;
@@ -322,8 +327,9 @@
   pointer-events: none;
 }
 
+
 /* =========================================================
-   LA MAGIA MÓVIL (CORREGIDA SOLO PARA CELULAR)
+   LA MAGIA MÓVIL (TARJETAS FLOTANTES Y DESENFOQUE)
 ========================================================= */
 @media (max-width: 900px) {
   .skills-wrapper { margin-top: 8rem; }
@@ -356,36 +362,24 @@
     50% { opacity: 1; transform: translateY(-3px); }
   }
 
-  /* 2. Acomodo de las fotos divididas (SOLO MÓVIL) */
+  /* 2. Acomodo de las fotos divididas */
   .skills-center-image {
     position: relative;
     left: auto;
     top: auto;
-    transform: none !important; 
+    transform: none !important; /* Matamos el slide de escritorio */
     width: 90%;
     max-width: 380px;
     margin: 0 auto;
-    pointer-events: auto; 
+    pointer-events: auto; /* Permitimos clics */
     z-index: 5;
-    /* 🚀 MAGIA: INVERTIMOS EL ORDEN SOLO EN CELULAR */
-    flex-direction: row-reverse; 
   }
-  
   .skills-split-section.mode-joke .skills-center-image,
   .skills-split-section.mode-real .skills-center-image {
-    transform: none; 
+    transform: none; /* Anulamos movimiento en móvil */
   }
 
-  /* 🚀 MAGIA: EMPAREJAMOS ALTURAS SOLO EN CELULAR */
-  .img-half { 
-    cursor: pointer; 
-    display: flex;
-  }
-  .img-half img {
-    height: 100%; 
-    object-fit: cover; 
-    object-position: top center; 
-  }
+  .img-half { cursor: pointer; }
 
   /* Efecto desenfoque en la foto que no tocaste */
   .img-half.is-blurred {
@@ -406,11 +400,12 @@
     width: 95%;
     max-width: 400px;
     background-color: var(--bg-color, #ffffff);
-    padding: 3rem 1.5rem 1.5rem 1.5rem; 
+    padding: 3rem 1.5rem 1.5rem 1.5rem; /* Más padding arriba para la X */
     border-radius: 20px;
     box-shadow: 0 25px 50px rgba(0,0,0,0.6);
     z-index: 30;
     
+    /* Escondidas y chiquitas por defecto */
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
@@ -441,7 +436,7 @@
     background: transparent;
     border: none;
     font-size: 2.5rem;
-    color: #410099; 
+    color: #410099; /* Moradito que resalta */
     cursor: pointer;
     z-index: 40;
     line-height: 1;
