@@ -455,3 +455,26 @@
 
   .skills-floor-line { display: none; }
 }
+
+/* 🚀 EL NUEVO SUBTÍTULO MORADITO YAHOO! */
+.skills-personality-subtitle {
+  color: #410099; 
+  font-family: var(--sans); 
+  font-size: 0.85rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  text-align: center;
+  margin-top: -1.5rem; /* Sube un poquito para pegarse al título */
+  margin-bottom: 2rem;
+  z-index: 10;
+  position: relative;
+}
+
+@media (max-width: 768px) {
+  .skills-personality-subtitle {
+    font-size: 0.75rem;
+    margin-top: -1rem;
+    margin-bottom: 1.5rem;
+  }
+}

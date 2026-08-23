@@ -14,6 +14,7 @@ export default function SkillsBlock({ lang }) {
   const dictionary = {
     es: {
       mainTitle: "SKILLS",
+      selectPersonality: "SELECCIONA ALGUNA DE MIS PERSONALIDADES", // 🚀 NUEVO SUBTÍTULO
       jokeTitle: "<DEVsastroso>",
       introJoke: "¡Si esto no compila me muero!",
       joke1: "Programo HTML directo en el Notepad (y a veces en Word).",
@@ -24,7 +25,6 @@ export default function SkillsBlock({ lang }) {
       joke6: "Contribuyo al código abierto (corrigiendo comas en el README).",
       realTitle: "</Marcos>",
       introReal: "Por si eres un RH que me quiere dar dinero.",
-      // --- TU NUEVA LISTA PROFESIONAL ---
       real1: "Python • PHP • JavaScript • Java • Dart",
       real2: "HTML5 • CSS3 • React • Flutter",
       real3: "Programación Orientada a Objetos (POO)",
@@ -38,8 +38,8 @@ export default function SkillsBlock({ lang }) {
       real11: "Automatización y Bots"
     },
     en: {
-      // ... (Mantén tu versión en inglés traducida igual, por ahora copio español para probar)
       mainTitle: "SKILLS",
+      selectPersonality: "CHOOSE ONE OF MY PERSONALITIES", // 🚀 NUEVO SUBTÍTULO
       jokeTitle: "<DEVsastroso>",
       introJoke: "If this doesn't compile, I'm dead!",
       joke1: "I code HTML directly in Notepad (and sometimes Word).",
@@ -69,12 +69,15 @@ export default function SkillsBlock({ lang }) {
   return (
     <div className="skills-wrapper">
       
-      {/* ... (Todo tu encabezado y botones móviles siguen exactamente igual) ... */}
+      {/* EL ENCABEZADO DE SIEMPRE */}
       <div className="skills-header">
         <div className="skills-line"></div>
         <h2 className="skills-main-title">{t.mainTitle}</h2>
         <div className="skills-line"></div>
       </div>
+
+      {/* 🚀 EL NUEVO SUBTÍTULO EN MEDIO */}
+      <p className="skills-personality-subtitle">{t.selectPersonality}</p>
 
       <div className="skills-mobile-selector">
         <button 
@@ -106,7 +109,7 @@ export default function SkillsBlock({ lang }) {
           />
         </div>
 
-        {/* MITAD IZQUIERDA: DEVsastroso (LA NOTA DE PAPEL) */}
+        {/* MITAD IZQUIERDA: DEVsastroso */}
         <div className={`skills-half left-side ${activeMode === 'joke' ? 'is-active' : ''}`}>
           <div className="skills-text-content text-left">
             <h3 className="skills-title">{t.jokeTitle}</h3>
@@ -131,13 +134,12 @@ export default function SkillsBlock({ lang }) {
           <img src="/skills-me.png" alt="Marcos Doble Personalidad" />
         </div>
 
-        {/* MITAD DERECHA: INGENIERO (LISTA ESTRUCTURADA) */}
+        {/* MITAD DERECHA: INGENIERO */}
         <div className={`skills-half right-side ${activeMode === 'real' ? 'is-active' : ''}`}>
           <div className="skills-text-content text-left">
             <h3 className="skills-title">{t.realTitle}</h3>
             <p className="skills-intro">{t.introReal}</p>
             
-            {/* Usamos una lista más técnica y limpia para acomodar todo */}
             <ul className="skills-list list-real professional-grid">
               <li><FaCode className="skill-icon" /> {t.real1}</li>
               <li><FaReact className="skill-icon" /> {t.real2}</li>
