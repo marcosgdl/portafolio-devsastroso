@@ -241,17 +241,27 @@
   .mobile-face-wrap.hide-face { display: none; }
 
   /* 4. La "X" moradita */
+  /* 🚀 BOTÓN X BLINDADO Y CLICKEABLE */
   .mobile-close-x {
     position: absolute;
-    top: 5px;
-    z-index: 50;
-    background: transparent;
-    border: none;
+    top: 12px;
+    z-index: 9999 !important; /* Lo mandamos a la capa más alta por encima del texto */
+    background: rgba(255, 255, 255, 0.9); /* Fondito blanco semi-transparente para que destaque */
+    border: 1px solid rgba(65, 0, 153, 0.2);
+    border-radius: 50%; /* Lo hacemos un botoncito circular muy cómodo al tacto */
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     color: #410099;
-    font-size: 1.8rem;
+    font-size: 1.2rem; /* Un tamaño equilibrado */
     cursor: pointer;
-    padding: 5px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
   }
+  
+  .mobile-close-x.btn-right { right: 15px; }
+  .mobile-close-x.btn-left { left: 15px; }
   
   /* Si DEVsastroso está activo, la X va a la derecha con su texto. Y viceversa. */
   .mobile-close-x.btn-right { right: 5px; }
