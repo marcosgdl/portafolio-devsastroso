@@ -63,7 +63,7 @@ export default function Footer({ lang }) {
           
           {/* 🚀 EL CORREO CLICKEABLE CON SU ÍCONO */}
           <a href="mailto:marcos@devsastroso.dev" className="footer-email">
-            <FaEnvelope className="icon-envelope" /> marcos@devsastroso.dev
+            <FaEnvelope className="icon-envelope" /> devsastroso@yahoo.com
           </a>
 
           {/* 🚀 LA FECHA AUTOMÁTICA SÚPER ELEGANTE */}
