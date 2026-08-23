@@ -148,7 +148,11 @@
   .mobile-face-wrap img { width: 100%; height: 100%; object-fit: cover !important; }
   .dev-face img { object-position: top right !important; }
   .ing-face img { object-position: top left !important; }
-  .mobile-face-wrap.hide-face { display: none; }
+  .mobile-face-wrap.hide-face { 
+    opacity: 0; 
+    pointer-events: none; 
+    /* ¡Eliminamos el display: none! */
+  }
 
   /* 🚀 EL BOTÓN "X" OBLIGADO A RECONOCER EL CLIC */
   .mobile-close-x {
@@ -162,9 +166,19 @@
   .mobile-close-x.btn-right { right: 5px; }
   .mobile-close-x.btn-left { left: 5px; }
 
-  .skills-half {
-    position: absolute; top: 0; width: 50%; height: 100%; z-index: 10;
-    padding: 3rem 0.5rem 0.5rem 0.5rem; overflow-y: auto; display: flex; flex-direction: column; align-items: center; background-color: transparent;
+ .skills-half {
+    position: absolute;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    z-index: 10;
+    padding: 3rem 0.5rem 0.5rem 0.5rem; 
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: transparent;
+    box-sizing: border-box; /* 🚀 MAGIA: Evita que el padding infle el 50% de ancho */
   }
 
   .skills-left-side { left: 50%; opacity: 0; pointer-events: none; visibility: hidden; }
@@ -173,23 +187,52 @@
   .skills-right-side { left: 0; opacity: 0; pointer-events: none; visibility: hidden; }
   .skills-right-side.is-active { opacity: 1; pointer-events: auto; visibility: visible; }
 
-  .skills-text-content { text-align: center !important; width: 100%; }
-  .skills-title { font-size: 1.3rem; margin-bottom: 0.5rem; }
-  .skills-intro { font-size: 0.65rem; margin-bottom: 0.5rem; line-height: 1.2; }
-
-  .paper-note {
-    padding: 0.6rem 0.4rem; margin-top: 0; transform: none !important; box-shadow: 0 4px 10px rgba(0,0,0,0.1); width: 100%;
+  /* 6. Alineación y distribución de textos */
+  .skills-text-content {
+    text-align: left !important; /* Textos a la izquierda para que no se rompan los párrafos */
+    width: 100%;
   }
-  .tape { display: none; }
-  .paper-note .skills-list li { font-size: 0.55rem; margin-bottom: 0.3rem; }
-  .paper-note .skill-icon { font-size: 0.8rem; margin-right: 4px; }
+  
+  .skills-title { 
+    font-size: 1.2rem; 
+    margin-bottom: 0.3rem; 
+    text-align: center; /* Solo centramos el título */
+  }
+  
+  .skills-intro { 
+    font-size: 0.65rem; 
+    margin-bottom: 0.5rem; 
+    line-height: 1.2; 
+    text-align: center; /* Solo centramos la intro */
+  }
 
-  .professional-grid { margin-top: 0; }
+  /* La Nota de Papel (DEVsastroso) */
+  .paper-note {
+    padding: 0.8rem 0.5rem;
+    margin-top: 0.5rem !important; /* 🚀 Le damos aire para que no choque con el título */
+    transform: none !important; 
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    width: 100%;
+    box-sizing: border-box;
+  }
+  .tape { display: none; } 
+  
+  .skills-list li {
+    align-items: flex-start !important; /* 🚀 Alinea el icono arriba si el texto ocupa 2 renglones */
+    line-height: 1.3;
+  }
+  
+  .paper-note .skills-list li { font-size: 0.55rem; margin-bottom: 0.4rem; }
+  .paper-note .skill-icon { font-size: 0.8rem; margin-right: 6px; margin-top: 2px; }
+
+  /* La Lista Profesional (Ingeniero) */
+  .professional-grid { margin-top: 0.5rem !important; }
   .professional-grid li { font-size: 0.55rem; margin-bottom: 0.35rem; }
-  .professional-grid .skill-icon { font-size: 0.75rem; margin-right: 4px; }
+  .professional-grid .skill-icon { font-size: 0.75rem; margin-right: 6px; margin-top: 1px; }
 
-  .skills-left-side.is-active .paper-note,
-  .skills-right-side.is-active .skills-list {
+  /* Forzamos que se muestren las listas al activarse */
+  .left-side.is-active .paper-note,
+  .right-side.is-active .skills-list {
     opacity: 1; visibility: visible; transform: none;
   }
 }
