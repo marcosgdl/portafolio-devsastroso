@@ -93,7 +93,6 @@ export default function SkillsBlock({ lang }) {
 
       <section className={`skills-split-section mode-${activeMode}`}>
         
-        {/* 🚀 EL BOTÓN "X" LIBERADO. Ahora manda sobre todas las capas. */}
         {activeMode !== 'none' && (
           <button 
             className={`mobile-close-x ${activeMode === 'joke' ? 'btn-right' : 'btn-left'}`} 
@@ -116,9 +115,8 @@ export default function SkillsBlock({ lang }) {
           />
         </div>
 
-        {/* 🚀 LE CAMBIAMOS EL NOMBRE A LAS CAPAS PARA NO ROMPER TU MENÚ GLOBAL */}
         <div className={`skills-half skills-left-side ${activeMode === 'joke' ? 'is-active' : ''}`}>
-          <div className="skills-text-content text-left">
+          <div className="skills-text-content skills-text-left">
             <h3 className="skills-title">{t.jokeTitle}</h3>
             <p className="skills-intro">{t.introJoke}</p>
             
@@ -137,11 +135,13 @@ export default function SkillsBlock({ lang }) {
           </div>
         </div>
 
-        <div className={`skills-center-image move-${activeMode} desktop-only`}>
+        {/* 🚀 NOMBRES DE CLASES PROTEGIDOS AQUÍ */}
+        <div className={`skills-center-image move-${activeMode} skills-desktop-img`}>
           <img src="/skills-me.png" alt="Marcos Doble Personalidad" />
         </div>
 
-        <div className="mobile-only-visuals">
+        {/* 🚀 Y AQUÍ */}
+        <div className="skills-mobile-visuals">
           <div 
             className={`mobile-face-wrap dev-face ${activeMode === 'real' ? 'hide-face' : ''}`} 
             onClick={() => setActiveMode('joke')}
@@ -158,7 +158,7 @@ export default function SkillsBlock({ lang }) {
         </div>
 
         <div className={`skills-half skills-right-side ${activeMode === 'real' ? 'is-active' : ''}`}>
-          <div className="skills-text-content text-left">
+          <div className="skills-text-content skills-text-left">
             <h3 className="skills-title">{t.realTitle}</h3>
             <p className="skills-intro">{t.introReal}</p>
             

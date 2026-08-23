@@ -1,123 +1,63 @@
 /* src/components/SkillsBlock/SkillsBlock.css */
 
 .skills-wrapper {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 6rem;
+  width: 100%; display: flex; flex-direction: column; align-items: center; margin-top: 6rem;
 }
 
 .skills-header {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  max-width: 1000px;
-  margin-bottom: 2rem;
-  padding: 0 2rem;
+  display: flex; align-items: center; justify-content: center; width: 100%; max-width: 1000px; margin-bottom: 2rem; padding: 0 2rem;
 }
 
 .skills-main-title {
-  font-size: 3.5rem;
-  font-weight: 900;
-  letter-spacing: 0.15em;
-  margin: 0 2rem;
-  color: var(--text-color);
-  opacity: 0.9;
+  font-size: 3.5rem; font-weight: 900; letter-spacing: 0.15em; margin: 0 2rem; color: var(--text-color); opacity: 0.9;
 }
 
 .skills-line {
-  flex: 1;
-  height: 2px;
-  background-color: var(--text-color);
-  opacity: 0.15;
+  flex: 1; height: 2px; background-color: var(--text-color); opacity: 0.15;
 }
 
 .skills-mobile-selector {
-  display: none;
-  gap: 1rem;
-  margin-bottom: 2rem;
-  z-index: 20;
+  display: none; gap: 1rem; margin-bottom: 2rem; z-index: 20;
 }
 
 .mobile-btn {
-  padding: 10px 18px;
-  border: 2px solid rgba(128, 128, 128, 0.2);
-  background: transparent;
-  color: var(--text-color);
-  font-weight: 700;
-  border-radius: 30px;
-  font-family: "Roboto", sans-serif; 
-  font-size: 1.2rem;
-  cursor: pointer;
-  transition: all 0.3s ease;
+  padding: 10px 18px; border: 2px solid rgba(128, 128, 128, 0.2); background: transparent; color: var(--text-color); font-weight: 700; border-radius: 30px; font-family: "Roboto", sans-serif; font-size: 1.2rem; cursor: pointer; transition: all 0.3s ease;
 }
 
 .mobile-btn.active.btn-joke,
 .mobile-btn.active.btn-real {
-  background-color: var(--text-color);
-  border-color: var(--text-color);
-  color: var(--bg-color, #fff);
-  box-shadow: 0 5px 15px rgba(128, 128, 128, 0.3);
+  background-color: var(--text-color); border-color: var(--text-color); color: var(--bg-color, #fff); box-shadow: 0 5px 15px rgba(128, 128, 128, 0.3);
 }
 
-/* --- SECCIÓN SPLIT (ESCRITORIO INTACTO) --- */
 .skills-split-section {
-  position: relative;
-  display: flex;
-  width: 100%;
-  max-width: 1400px;
-  margin: 2rem auto 8rem auto;
-  min-height: 550px;
-  align-items: center;
+  position: relative; display: flex; width: 100%; max-width: 1400px; margin: 2rem auto 8rem auto; min-height: 550px; align-items: center;
 }
 
 .desktop-hover-zones {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  z-index: 10;
-  pointer-events: auto;
+  position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; z-index: 10; pointer-events: auto;
 }
 
 .hover-zone { flex: 1; height: 100%; cursor: pointer; }
 
 .skills-half {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  z-index: 2;
-  transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+  flex: 1; display: flex; flex-direction: column; justify-content: center; z-index: 2; transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 .skills-text-content { width: 100%; max-width: 450px; }
-
-/* 🚀 AQUÍ ESTÁ LA CURA DEL MENÚ APLASTADO (Nombres protegidos) */
 .skills-left-side { align-items: flex-end; padding-right: 340px; }
 .skills-right-side { align-items: flex-start; padding-left: 340px; }
-.text-left { text-align: left; }
+.skills-text-left { text-align: left; }
 
 .skills-title {
-  font-family: "Roboto", sans-serif; font-weight: 900; font-size: 3rem; 
-  margin-bottom: 0.2rem; color: var(--text-color); 
-  transition: all 0.4s ease; font-variation-settings: "wdth" 100; letter-spacing: -0.04em; 
+  font-family: "Roboto", sans-serif; font-weight: 900; font-size: 3rem; margin-bottom: 0.2rem; color: var(--text-color); transition: all 0.4s ease; font-variation-settings: "wdth" 100; letter-spacing: -0.04em; 
 }
 
 .skills-intro {
-  font-family: sans-serif; font-size: 0.95rem; font-weight: 300; 
-  color: #758390; line-height: 1.5; margin-bottom: 1.5rem;
-  max-height: 100px; opacity: 1; visibility: visible; overflow: hidden; transition: all 0.4s ease;
+  font-family: sans-serif; font-size: 0.95rem; font-weight: 300; color: #758390; line-height: 1.5; margin-bottom: 1.5rem; max-height: 100px; opacity: 1; visibility: visible; overflow: hidden; transition: all 0.4s ease;
 }
 
 .skills-list {
-  list-style: none; padding: 0; margin: 0;
-  opacity: 0; visibility: hidden; transform: translateY(20px); 
-  transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+  list-style: none; padding: 0; margin: 0; opacity: 0; visibility: hidden; transform: translateY(20px); transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
 }
 .skills-list li { display: flex; align-items: center; }
 
@@ -129,21 +69,16 @@
 :root.dark .professional-grid li:hover { color: #b070ff; }
 
 .paper-note {
-  position: relative; background-color: #fdfdfd; padding: 1.5rem 1.5rem; margin-top: 1.5rem;
-  box-shadow: 2px 8px 25px rgba(0,0,0,0.2); font-family: 'Courier New', Courier, monospace; font-weight: 600;
-  opacity: 0; visibility: hidden; transform: rotate(-3deg) translateY(20px); transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+  position: relative; background-color: #fdfdfd; padding: 1.5rem 1.5rem; margin-top: 1.5rem; box-shadow: 2px 8px 25px rgba(0,0,0,0.2); font-family: 'Courier New', Courier, monospace; font-weight: 600; opacity: 0; visibility: hidden; transform: rotate(-3deg) translateY(20px); transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
 }
 .paper-note::before {
-  content: ""; position: absolute; top: -10px; left: 0; right: 0; height: 10px;
-  background: linear-gradient(45deg, #fdfdfd 50%, transparent 50%) 0 0, linear-gradient(-45deg, #fdfdfd 50%, transparent 50%) 0 0; background-size: 15px 15px;
+  content: ""; position: absolute; top: -10px; left: 0; right: 0; height: 10px; background: linear-gradient(45deg, #fdfdfd 50%, transparent 50%) 0 0, linear-gradient(-45deg, #fdfdfd 50%, transparent 50%) 0 0; background-size: 15px 15px;
 }
 .paper-note::after {
-  content: ""; position: absolute; bottom: -10px; left: 0; right: 0; height: 10px;
-  background: linear-gradient(135deg, #fdfdfd 50%, transparent 50%) 0 0, linear-gradient(-135deg, #fdfdfd 50%, transparent 50%) 0 0; background-size: 15px 15px;
+  content: ""; position: absolute; bottom: -10px; left: 0; right: 0; height: 10px; background: linear-gradient(135deg, #fdfdfd 50%, transparent 50%) 0 0, linear-gradient(-135deg, #fdfdfd 50%, transparent 50%) 0 0; background-size: 15px 15px;
 }
 .tape {
-  position: absolute; width: 90px; height: 25px; background-color: rgba(255, 255, 255, 0.4);
-  border: 1px solid rgba(0, 0, 0, 0.05); box-shadow: 0 2px 4px rgba(0,0,0,0.1); backdrop-filter: blur(3px); z-index: 5;
+  position: absolute; width: 90px; height: 25px; background-color: rgba(255, 255, 255, 0.4); border: 1px solid rgba(0, 0, 0, 0.05); box-shadow: 0 2px 4px rgba(0,0,0,0.1); backdrop-filter: blur(3px); z-index: 5;
 }
 .tape-top { top: -15px; left: -15px; transform: rotate(-25deg); }
 .tape-bottom { bottom: -15px; right: -15px; transform: rotate(-20deg); }
@@ -153,7 +88,6 @@
 .paper-note .skill-icon { color: #410099; opacity: 0.85; font-size: 1.2rem; margin-right: 10px; flex-shrink: 0; }
 .paper-note li:hover .skill-icon { color: #6001d2; opacity: 1; transform: scale(1.1); }
 
-/* 🚀 NOMBRES PROTEGIDOS PARA LAS ANIMACIONES */
 .skills-left-side.is-active .skills-title { transform: scale(1.03); }
 .skills-left-side.is-active .skills-intro { opacity: 0; visibility: hidden; max-height: 0; margin-bottom: 0; transform: translateY(-10px); }
 .skills-right-side.is-active .skills-list { opacity: 1; visibility: visible; transform: translateY(0); }
@@ -171,8 +105,7 @@
 .skills-center-image.move-real { transform: translate(-50%, -50%) translateX(-65px); }
 
 .skills-floor-line {
-  position: absolute; bottom: 20px; left: 0; width: 100%; height: 1px;
-  background-color: var(--text-color); opacity: 0.15; z-index: 0; pointer-events: none;
+  position: absolute; bottom: 20px; left: 0; width: 100%; height: 1px; background-color: var(--text-color); opacity: 0.15; z-index: 0; pointer-events: none;
 }
 
 .skills-personality-subtitle {
@@ -180,9 +113,9 @@
   letter-spacing: 1.5px; text-align: center; margin-top: -1.5rem; margin-bottom: 2rem; z-index: 10; position: relative;
 }
 
-/* 🚀 CLASES PARA PROTEGER ESCRITORIO DE LA VERSIÓN MÓVIL */
-.mobile-only-visuals { display: none; }
-.desktop-only { display: block; }
+/* 🚀 CLASES 100% PROTEGIDAS (Adiós conflicto con el Navbar) */
+.skills-mobile-visuals { display: none; }
+.skills-desktop-img { display: block; }
 
 /* =========================================================================
    🚀 LA NUEVA MAGIA MÓVIL 🚀
@@ -193,140 +126,66 @@
   .skills-main-title { font-size: 2.5rem; }
   .skills-personality-subtitle { font-size: 0.75rem; margin-top: -1rem; margin-bottom: 1.5rem; }
 
-  /* 1. Ocultamos todo lo viejo de móvil y lo exclusivo de escritorio */
   .skills-mobile-selector { display: none !important; }
-  .desktop-only { display: none !important; }
+  .skills-desktop-img { display: none !important; }
   .desktop-hover-zones { display: none; }
   .skills-floor-line { display: none; }
 
-  /* 2. El lienzo donde ocurre la magia (500px de altura para que quepan los textos) */
   .skills-split-section {
-    display: block;
-    position: relative;
-    width: 100%;
-    margin: 1rem auto;
-    height: 480px; 
-    overflow: hidden;
+    display: block; position: relative; width: 100%; margin: 1rem auto; height: 480px; overflow: hidden;
   }
 
-  /* 3. Las dos fotos (Dev e Ing) */
-  .mobile-only-visuals {
-    display: flex;
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    z-index: 5;
+  .skills-mobile-visuals {
+    display: flex; position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 5;
   }
 
   .mobile-face-wrap {
-    width: 50%;
-    height: 100%;
-    cursor: pointer;
-    background-color: var(--bg-color, #ffffff);
+    width: 50%; height: 100%; cursor: pointer; background-color: var(--bg-color, #ffffff);
   }
   
-  /* 🚀 LA CURA ANTI-EXTRATERRESTRES */
-  .mobile-face-wrap img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover !important; /* Forzamos que no se apachurre */
-  }
-
-  /* Movemos la foto de DEVsastroso (Izquierda) para que se pegue al centro */
-  .dev-face img {
-    object-position: top right !important; 
-  }
-
-  /* Movemos la foto del Ingeniero (Derecha) para que se pegue al centro */
-  .ing-face img {
-    object-position: top left !important;
-  }
+  .mobile-face-wrap img { width: 100%; height: 100%; object-fit: cover !important; }
+  .dev-face img { object-position: top right !important; }
+  .ing-face img { object-position: top left !important; }
   .mobile-face-wrap.hide-face { display: none; }
 
-  /* 4. La "X" moradita */
-  /* 🚀 BOTÓN X BLINDADO Y CLICKEABLE */
+  /* 🚀 EL BOTÓN "X" OBLIGADO A RECONOCER EL CLIC */
   .mobile-close-x {
-    position: absolute;
-    top: 12px;
-    z-index: 9999 !important; /* Lo mandamos a la capa más alta por encima del texto */
-    background: rgba(255, 255, 255, 0.9); /* Fondito blanco semi-transparente para que destaque */
-    border: 1px solid rgba(65, 0, 153, 0.2);
-    border-radius: 50%; /* Lo hacemos un botoncito circular muy cómodo al tacto */
-    width: 36px;
-    height: 36px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #410099;
-    font-size: 1.2rem; /* Un tamaño equilibrado */
-    cursor: pointer;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    position: absolute; top: 12px; z-index: 9999 !important; 
+    background: rgba(255, 255, 255, 0.9); border: 1px solid rgba(65, 0, 153, 0.2); border-radius: 50%; 
+    width: 36px; height: 36px; display: flex; align-items: center; justify-content: center;
+    color: #410099; font-size: 1.2rem; cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    pointer-events: auto !important; /* Fuerza el clic por encima de cualquier cosa */
   }
   
-  /* Si DEVsastroso está activo, la X va a la derecha con su texto. Y viceversa. */
   .mobile-close-x.btn-right { right: 5px; }
   .mobile-close-x.btn-left { left: 5px; }
 
-  /* 5. Los textos de las habilidades (Entran a sustituir a las fotos) */
   .skills-half {
-    position: absolute;
-    top: 0;
-    width: 50%; /* Ocupan exactamente la mitad de la pantalla */
-    height: 100%;
-    z-index: 10;
-    padding: 3rem 0.5rem 0.5rem 0.5rem; /* El espacio de arriba es para la X */
-    overflow-y: auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: transparent;
+    position: absolute; top: 0; width: 50%; height: 100%; z-index: 10;
+    padding: 3rem 0.5rem 0.5rem 0.5rem; overflow-y: auto; display: flex; flex-direction: column; align-items: center; background-color: transparent;
   }
 
-  /* 🚀 MÁS NOMBRES PROTEGIDOS PARA MÓVIL */
-  /* DEVsastroso (Joke): Originalmente izquierda, ahora ocupa la DERECHA para suplir al Ing. */
-  .skills-left-side {
-    left: 50%;
-    opacity: 0; pointer-events: none; visibility: hidden;
-  }
-  .skills-left-side.is-active {
-    opacity: 1; pointer-events: auto; visibility: visible;
-  }
+  .skills-left-side { left: 50%; opacity: 0; pointer-events: none; visibility: hidden; }
+  .skills-left-side.is-active { opacity: 1; pointer-events: auto; visibility: visible; }
 
-  /* Ingeniero (Real): Originalmente derecha, ahora ocupa la IZQUIERDA para suplir al Dev. */
-  .skills-right-side {
-    left: 0;
-    opacity: 0; pointer-events: none; visibility: hidden;
-  }
-  .skills-right-side.is-active {
-    opacity: 1; pointer-events: auto; visibility: visible;
-  }
+  .skills-right-side { left: 0; opacity: 0; pointer-events: none; visibility: hidden; }
+  .skills-right-side.is-active { opacity: 1; pointer-events: auto; visibility: visible; }
 
-  /* 6. Hacemos las letras más finitas para que quepan bien en ese 50% */
-  .skills-text-content {
-    text-align: center !important;
-    width: 100%;
-  }
+  .skills-text-content { text-align: center !important; width: 100%; }
   .skills-title { font-size: 1.3rem; margin-bottom: 0.5rem; }
   .skills-intro { font-size: 0.65rem; margin-bottom: 0.5rem; line-height: 1.2; }
 
-  /* La Nota de Papel (DEVsastroso) */
   .paper-note {
-    padding: 0.6rem 0.4rem;
-    margin-top: 0;
-    transform: none !important; /* Le quitamos la rotación en móvil para ahorrar espacio */
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    width: 100%;
+    padding: 0.6rem 0.4rem; margin-top: 0; transform: none !important; box-shadow: 0 4px 10px rgba(0,0,0,0.1); width: 100%;
   }
-  .tape { display: none; } /* Ocultamos las cintas de papel en móvil */
+  .tape { display: none; }
   .paper-note .skills-list li { font-size: 0.55rem; margin-bottom: 0.3rem; }
   .paper-note .skill-icon { font-size: 0.8rem; margin-right: 4px; }
 
-  /* La Lista Profesional (Ingeniero) */
   .professional-grid { margin-top: 0; }
   .professional-grid li { font-size: 0.55rem; margin-bottom: 0.35rem; }
   .professional-grid .skill-icon { font-size: 0.75rem; margin-right: 4px; }
 
-  /* 🚀 Forzamos que se muestren las listas al activarse (nombres protegidos) */
   .skills-left-side.is-active .paper-note,
   .skills-right-side.is-active .skills-list {
     opacity: 1; visibility: visible; transform: none;
