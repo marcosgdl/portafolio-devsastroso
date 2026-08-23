@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { 
   FaHtml5, FaServer, FaReact, FaRobot, FaBolt, FaMobileAlt, FaCode, 
   FaCubes, FaPencilRuler, FaProjectDiagram, FaNetworkWired, FaGitAlt, 
-  FaLayerGroup, FaDatabase, FaTimes 
+  FaLayerGroup, FaDatabase, FaTimes, FaChevronLeft, FaChevronRight 
 } from 'react-icons/fa';
 import './SkillsBlock.css';
 
@@ -76,6 +76,13 @@ export default function SkillsBlock({ lang }) {
 
       <p className="skills-personality-subtitle">{t.selectPersonality}</p>
 
+      {/* 🚀 PISTA VISUAL CON FLECHITAS ANIMADAS */}
+      <div className={`mobile-tap-hint ${activeMode !== 'none' ? 'is-hidden' : ''}`}>
+        <FaChevronLeft className="hint-arrow arrow-left" />
+        <span>Toca la mitad que quieras conocer</span>
+        <FaChevronRight className="hint-arrow arrow-right" />
+      </div>
+
       <div className="skills-mobile-selector">
         <button 
           className={`mobile-btn btn-joke ${activeMode === 'joke' ? 'active' : ''}`}
@@ -135,12 +142,10 @@ export default function SkillsBlock({ lang }) {
           </div>
         </div>
 
-        {/* 🚀 NOMBRES DE CLASES PROTEGIDOS AQUÍ */}
         <div className={`skills-center-image move-${activeMode} skills-desktop-img`}>
           <img src="/skills-me.png" alt="Marcos Doble Personalidad" />
         </div>
 
-        {/* 🚀 Y AQUÍ */}
         <div className="skills-mobile-visuals">
           <div 
             className={`mobile-face-wrap dev-face ${activeMode === 'real' ? 'hide-face' : ''}`} 
