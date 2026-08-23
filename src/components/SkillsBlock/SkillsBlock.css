@@ -114,8 +114,10 @@
 }
 
 /* 🚀 CLASES 100% PROTEGIDAS (Adiós conflicto con el Navbar) */
+/* 🚀 CLASES PARA PROTEGER ESCRITORIO DE LA VERSIÓN MÓVIL */
 .skills-mobile-visuals { display: none; }
 .skills-desktop-img { display: block; }
+.mobile-close-x { display: none; } /* <-- ESTA ES LA LÍNEA NUEVA */
 
 /* =========================================================================
    🚀 LA NUEVA MAGIA MÓVIL 🚀
