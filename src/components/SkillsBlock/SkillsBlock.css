@@ -222,13 +222,22 @@
     background-color: var(--bg-color, #ffffff);
   }
   
+  /* 🚀 LA CURA ANTI-EXTRATERRESTRES */
   .mobile-face-wrap img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    object-position: top center;
+    object-fit: cover !important; /* Forzamos que no se apachurre */
   }
 
+  /* Movemos la foto de DEVsastroso (Izquierda) para que se pegue al centro */
+  .dev-face img {
+    object-position: top right !important; 
+  }
+
+  /* Movemos la foto del Ingeniero (Derecha) para que se pegue al centro */
+  .ing-face img {
+    object-position: top left !important;
+  }
   .mobile-face-wrap.hide-face { display: none; }
 
   /* 4. La "X" moradita */
