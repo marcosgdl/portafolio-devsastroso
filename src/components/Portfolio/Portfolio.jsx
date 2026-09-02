@@ -21,10 +21,17 @@ export default function Portfolio({ lang }) {
   // 🚀 Tu lista de proyectos (Visorías añadido al principio de la lista)
   const projects = [
     { 
+      id: 11, 
+      title: 'cartuchodetonermx.com', 
+      category: 'Full-Stack / API & IA', 
+      img: '/11.png', 
+      link: 'https://cartuchodetonermx.com' 
+    },
+    { 
       id: 10, 
       title: 'visoriasluisflores.com', 
       category: 'Full-Stack / React & Node', 
-      img: '/10.jpeg', // Solo asegúrate de subir la captura como 10.png en tu carpeta public
+      img: '/10.png', 
       link: 'https://visoriasluisflores.com' 
     },
     { id: 1, title: 'fantasy-bowl.com', category: 'Frontend-Backend-API', img: '/1.png' },
