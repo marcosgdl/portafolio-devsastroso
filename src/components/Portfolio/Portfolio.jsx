@@ -24,7 +24,7 @@ export default function Portfolio({ lang }) {
       id: 12, 
       title: 'Bot WA STADIOMAX', 
       category: 'AWS EC2 • Node.js • Automatización', 
-      img: '/12.png'
+      img: '/12.jpeg'
     },
     { 
       id: 11, 
