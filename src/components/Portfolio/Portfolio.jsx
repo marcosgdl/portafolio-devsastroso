@@ -18,8 +18,14 @@ export default function Portfolio({ lang }) {
 
   const t = dictionary[lang] || dictionary.es;
 
-  // 🚀 Tu lista de proyectos (Visorías añadido al principio de la lista)
+// 🚀 Tu lista de proyectos (STADIOMAX añadido al inicio)
   const projects = [
+    { 
+      id: 12, 
+      title: 'Bot WA STADIOMAX', 
+      category: 'AWS EC2 • Node.js • Automatización', 
+      img: '/12.png'
+    },
     { 
       id: 11, 
       title: 'cartuchodetonermx.com', 
